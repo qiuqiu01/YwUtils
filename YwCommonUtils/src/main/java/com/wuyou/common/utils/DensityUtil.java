@@ -1,16 +1,19 @@
+/*
+ * Copyright (c) 2017.
+ * Created by QiuQiu on 2017/7/5.
+ * All Rights Reserved.
+ */
 package com.wuyou.common.utils;
 
 import android.content.Context;
 import android.util.TypedValue;
 
 /**
- * Created by QiuQiu on 2017-07-05.
  * 设备像素之间的转换
  */
-
 public class DensityUtil {
     /**
-     * dp转px
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      * @return
      */
     public static int dp2px(Context context, float dpVal) {

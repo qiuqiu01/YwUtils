@@ -1,8 +1,16 @@
+/*
+ * Copyright (c) 2020.
+ * Created by QiuQiu on 2020/1/8.
+ * All Rights Reserved.
+ */
 package com.wuyou.common.utils;
 
 import android.content.Context;
 import android.widget.Toast;
 
+/**
+ * Toast工具类
+ */
 public class ToastUtil {
 
 	/**

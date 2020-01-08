@@ -1,9 +1,15 @@
+/*
+ * Copyright (c) 2017.
+ * Created by QiuQiu on 2017/6/6.
+ * All Rights Reserved.
+ */
 package com.wuyou.common.utils;
 
 import android.graphics.PointF;
 
 /**
  * 几何图形工具
+ * Created by QiuQiu on 2017/6/6.
  */
 public class GeometryUtil {
 	

@@ -1,9 +1,17 @@
+/*
+ * Copyright (c) 2017.
+ * Created by QiuQiu on 2017/7/5.
+ * All Rights Reserved.
+ */
 package com.wuyou.common.utils;
 
 import java.util.Random;
 
 import android.graphics.Color;
 
+/**
+ * Color工具类
+ */
 public class ColorUtil {
 	/**
 	 * 随机生成漂亮的颜色

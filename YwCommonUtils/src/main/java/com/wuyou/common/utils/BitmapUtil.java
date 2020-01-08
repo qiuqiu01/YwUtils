@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2020.
+ * Created by QiuQiu on 2020/1/8.
+ * All Rights Reserved.
+ */
 package com.wuyou.common.utils;
 
 import android.graphics.Bitmap;
@@ -9,6 +14,10 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 
+/**
+ * Bitmap工具类
+ * Created by QiuQiu on 2020/1/8.
+ */
 public class BitmapUtil {
 
     /**

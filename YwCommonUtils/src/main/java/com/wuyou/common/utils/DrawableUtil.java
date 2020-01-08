@@ -1,10 +1,17 @@
+/*
+ * Copyright (c) 2017.
+ * Created by QiuQiu on 2017/7/5.
+ * All Rights Reserved.
+ */
 package com.wuyou.common.utils;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.os.Build.VERSION;
 
+/**
+ * Drawable工具类
+ */
 public class DrawableUtil {
 	/**
 	 * 生成圆角图片，对应的xml中的shape标签
@@ -30,11 +37,9 @@ public class DrawableUtil {
 		drawable.addState(new int[]{}, normal);	// 设置默认的图片
 		
 		// 设置状态选择器过度动画
-		if(VERSION.SDK_INT>16){
-			drawable.setEnterFadeDuration(500);
-			drawable.setExitFadeDuration(500);
-		}
-		
+		drawable.setEnterFadeDuration(500);
+		drawable.setExitFadeDuration(500);
+
 		return drawable;
 	}
 }
