@@ -1,4 +1,4 @@
-package com.study.googleplay.util;
+package com.wuyou.common.utils;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -30,7 +30,7 @@ public class DrawableUtil {
 		drawable.addState(new int[]{}, normal);//设置默认的图片
 		
 		//设置状态选择器过度动画
-		if(VERSION.SDK_INT>10){
+		if(VERSION.SDK_INT>16){
 			drawable.setEnterFadeDuration(500);
 			drawable.setExitFadeDuration(500);
 		}
