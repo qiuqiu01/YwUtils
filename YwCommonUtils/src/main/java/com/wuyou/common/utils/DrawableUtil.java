@@ -12,7 +12,7 @@ public class DrawableUtil {
 	 */
 	public static Drawable generateDrawable(int rgb,float radius){
 		GradientDrawable drawable = new GradientDrawable();
-		drawable.setShape(GradientDrawable.RECTANGLE);//设置为矩形，默认就是矩形
+		drawable.setShape(GradientDrawable.RECTANGLE);	// 设置为矩形，默认就是矩形
 		drawable.setColor(rgb);
 		drawable.setCornerRadius(radius);
 		return drawable;
@@ -26,10 +26,10 @@ public class DrawableUtil {
 	 */
 	public static Drawable generateSelector(Drawable pressed,Drawable normal){
 		StateListDrawable drawable = new StateListDrawable();
-		drawable.addState(new int[]{android.R.attr.state_pressed}, pressed);//设置按下的图片
-		drawable.addState(new int[]{}, normal);//设置默认的图片
+		drawable.addState(new int[]{android.R.attr.state_pressed}, pressed);	// 设置按下的图片
+		drawable.addState(new int[]{}, normal);	// 设置默认的图片
 		
-		//设置状态选择器过度动画
+		// 设置状态选择器过度动画
 		if(VERSION.SDK_INT>16){
 			drawable.setEnterFadeDuration(500);
 			drawable.setExitFadeDuration(500);

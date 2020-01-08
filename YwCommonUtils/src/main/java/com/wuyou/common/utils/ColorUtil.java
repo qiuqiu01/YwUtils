@@ -11,9 +11,9 @@ public class ColorUtil {
 	 */
 	public static int randomColor(){
 		Random random = new Random();
-		int red = random.nextInt(150);//0-190
-		int green = random.nextInt(150);//0-190
-		int blue = random.nextInt(150);//0-190
-		return Color.rgb(red, green, blue);//使用rgb混合生成一种新的颜色
+		int red = random.nextInt(150);		// 0-190
+		int green = random.nextInt(150);	// 0-190
+		int blue = random.nextInt(150);		// 0-190
+		return Color.rgb(red, green, blue);		// 使用rgb混合生成一种新的颜色
 	}
 }

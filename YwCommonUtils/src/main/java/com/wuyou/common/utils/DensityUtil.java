@@ -5,6 +5,7 @@ import android.util.TypedValue;
 
 /**
  * Created by QiuQiu on 2017-07-05.
+ * 设备像素之间的转换
  */
 
 public class DensityUtil {

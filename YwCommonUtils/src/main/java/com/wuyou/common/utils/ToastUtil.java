@@ -13,7 +13,7 @@ public class ToastUtil {
 		if(toast==null){
 			toast = Toast.makeText(context, text,Toast.LENGTH_SHORT);
 		}
-		toast.setText(text);//如果不为空，则直接改变当前toast的文本
+		toast.setText(text);	// 如果不为空，则直接改变当前toast的文本
 		toast.show();
 	}
 }
