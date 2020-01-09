@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.wuyou.common.utils.DateUtils;
+
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
