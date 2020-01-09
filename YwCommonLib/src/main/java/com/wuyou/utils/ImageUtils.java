@@ -33,10 +33,18 @@ import java.io.OutputStream;
  */
 public class ImageUtils {
 
+    /**
+     * 计算图片采样率
+     * @param options
+     * @param reqWidth
+     * @param reqHeight
+     * @return
+     */
     public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         final int height = options.outHeight;
         final int width = options.outWidth;
         int inSampleSize = 1;
+
         if (height > reqHeight || width > reqWidth) {
             final int halfHeight = height / 2;
             final int halfWidth = width / 2;

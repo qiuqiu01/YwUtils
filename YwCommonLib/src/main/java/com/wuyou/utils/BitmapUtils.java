@@ -153,6 +153,13 @@ public class BitmapUtils {
         return b;
     }
 
+    /**
+     * 加载图片
+     * @param pathName  图片路径
+     * @param width
+     * @param height
+     * @return
+     */
     public static Bitmap decodeFile(String pathName, int width, int height) {
         Bitmap bitmap = null;
         if (FileUtils.isFileExist(pathName)) {
@@ -189,6 +196,11 @@ public class BitmapUtils {
         return bitmap;
     }
 
+    /**
+     * 获取图片缩略图
+     * @param imagePath
+     * @return
+     */
     public static Bitmap getImageThumbnail(String imagePath) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
