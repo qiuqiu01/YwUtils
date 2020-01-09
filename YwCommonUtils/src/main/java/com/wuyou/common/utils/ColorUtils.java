@@ -12,7 +12,7 @@ import android.graphics.Color;
 /**
  * Color工具类
  */
-public class ColorUtil {
+public class ColorUtils {
 	/**
 	 * 随机生成漂亮的颜色
 	 * @return

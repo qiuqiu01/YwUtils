@@ -14,19 +14,19 @@ import java.util.List;
  * Activity相关管理工具
  * Created by QiuQiu on 2020/1/8.
  */
-public class ActivityUtil {
-    private static ActivityUtil instance;
+public class ActivityUtils {
+    private static ActivityUtils instance;
 
     private List<Activity> activities = new ArrayList<Activity>();
 
-    private ActivityUtil() {
+    private ActivityUtils() {
     }
 
-    public static ActivityUtil getInstance() {
+    public static ActivityUtils getInstance() {
         if (instance == null) {
-            synchronized (ActivityUtil.class) {
+            synchronized (ActivityUtils.class) {
                 if (instance == null) {
-                    instance = new ActivityUtil();
+                    instance = new ActivityUtils();
                 }
             }
         }

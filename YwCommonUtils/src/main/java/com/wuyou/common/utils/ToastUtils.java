@@ -11,7 +11,7 @@ import android.widget.Toast;
 /**
  * Toast工具类
  */
-public class ToastUtil {
+public class ToastUtils {
 
 	/**
 	 * 之前显示的内容

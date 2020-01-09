@@ -12,7 +12,7 @@ import android.graphics.drawable.StateListDrawable;
 /**
  * Drawable工具类
  */
-public class DrawableUtil {
+public class DrawableUtils {
 	/**
 	 * 生成圆角图片，对应的xml中的shape标签
 	 * @return

@@ -11,7 +11,7 @@ import android.graphics.PointF;
  * 几何图形工具
  * Created by QiuQiu on 2017/6/6.
  */
-public class GeometryUtil {
+public class GeometryUtils {
 	
 	/**
 	 * As meaning of method name.

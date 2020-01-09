@@ -18,7 +18,7 @@ import android.graphics.RectF;
  * Bitmap工具类
  * Created by QiuQiu on 2020/1/8.
  */
-public class BitmapUtil {
+public class BitmapUtils {
 
     /**
      * 更改图片尺寸

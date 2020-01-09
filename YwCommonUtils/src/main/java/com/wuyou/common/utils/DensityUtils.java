@@ -11,7 +11,7 @@ import android.util.TypedValue;
 /**
  * 设备像素之间的转换
  */
-public class DensityUtil {
+public class DensityUtils {
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      * @return

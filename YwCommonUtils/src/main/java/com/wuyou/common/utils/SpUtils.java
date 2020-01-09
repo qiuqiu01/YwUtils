@@ -12,7 +12,7 @@ import android.content.SharedPreferences;
  * 封装SharePreferences
  * Created by QiuQiu on 2017-07-05.
  */
-public class SpUtil {
+public class SpUtils {
     public static boolean getBoolean(Context context, String key, boolean defValue){
         SharedPreferences sp = context.getSharedPreferences("config", context.MODE_PRIVATE);
         return sp.getBoolean(key, defValue);

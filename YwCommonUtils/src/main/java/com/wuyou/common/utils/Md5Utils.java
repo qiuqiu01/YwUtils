@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
  * Created by QiuQiu on 2017/6/6.
  */
 
-public class Md5Util {
+public class Md5Utils {
     public static String encode(String password) {
         try {
             // 1.获取MessageDigest实例,拿到一个MD5转换器（如果想要SHA1参数换成”SHA1”）

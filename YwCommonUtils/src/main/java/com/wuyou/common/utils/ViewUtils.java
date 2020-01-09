@@ -28,7 +28,7 @@ import com.wuyou.common.R;
 /**
  * View工具
  */
-public class ViewUtil {
+public class ViewUtils {
 
     /**
      * 将自己从父窗口中移除

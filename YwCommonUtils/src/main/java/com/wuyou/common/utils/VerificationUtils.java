@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 /**
  * 验证工具，验证市面上常用的字符串，比如手机号，邮箱等
  */
-public class VerificationUtil {
+public class VerificationUtils {
     /**
      * 邮政编码
      */

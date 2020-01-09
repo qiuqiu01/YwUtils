@@ -11,8 +11,8 @@ import android.util.DisplayMetrics;
 /**
  * 屏幕管理工具，获取设备宽高
  */
-public class ScreenUtil {
-    private ScreenUtil() {
+public class ScreenUtils {
+    private ScreenUtils() {
         throw new AssertionError();
     }
 
