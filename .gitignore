@@ -33,7 +33,7 @@ proguard/
 # Windows thumbnail db
 .DS_Store
 
-# Android Studio new edition generatore
+# Android Studio new edition auto generate
 /captures
 .externalNativeBuild
 .cxx
