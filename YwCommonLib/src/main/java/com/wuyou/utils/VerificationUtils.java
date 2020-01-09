@@ -25,7 +25,7 @@ public class VerificationUtils {
     }
 
     /**
-     *
+     * 真实姓名
      */
     public static boolean isRealName(String value) {
         String regex = "^([\\u4e00-\\u9fa5]+|([a-zA-Z]+\\s?)+)$";
@@ -41,7 +41,7 @@ public class VerificationUtils {
     }
 
     /**
-     *
+     * 账户
      */
     public static boolean isAccount(String value) {
         String regex = "[\\u4e00-\\u9fa5a-zA-Z0-9\\-]{4,20}";
@@ -49,7 +49,7 @@ public class VerificationUtils {
     }
 
     /**
-     *
+     * 密码1
      */
     public static boolean isPassword(String value) {
         String regex = "^[a-zA-Z0-9]{6,12}$";
@@ -57,7 +57,7 @@ public class VerificationUtils {
     }
 
     /**
-     *
+     * 密码2
      */
     public static boolean isPassword2(String value) {
         String regex = "(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}";

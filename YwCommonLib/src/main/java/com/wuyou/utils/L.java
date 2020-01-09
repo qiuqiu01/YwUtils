@@ -23,6 +23,26 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 /**
+ * ━━━━ Code is far away from ━━━━━━
+ * 　　  () 　　　  ()
+ * 　　  ( ) 　　　( )
+ * 　　  ( ) 　　　( )
+ * 　　┏┛┻━━━┛┻┓
+ * 　　┃　　　c　　　┃
+ * 　　┃　┳┛　┗┳　┃
+ * 　　┃　　　┻　　　┃
+ * 　　┗━┓　　　┏━┛
+ * 　　　　┃　　　┃
+ * 　　　　┃　　　┗━━━┓
+ * 　　　　┃　　　　　　　┣┓
+ * 　　　　┃　　　　　　　┏┛
+ * 　　　　┗┓┓┏━┳┓┏┛
+ * 　　　　　┃┫┫　┃┫┫
+ * 　　　　　┗┻┛　┗┻┛
+ * ━━━━ bug with the XYY protecting━━━
+ */
+
+/**
  * 日志工具类
  */
 public class L {
