@@ -12,7 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 /**
- * 验证工具，验证市面上常用的字符串，比如手机号，邮箱等
+ * 验证工具类
+ * 验证市面上常用的字符串，比如手机号，邮箱等
  */
 public class VerificationUtils {
     /**

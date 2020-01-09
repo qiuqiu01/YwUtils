@@ -20,6 +20,10 @@ import android.text.TextUtils;
 
 import java.util.List;
 
+/**
+ * 网络工具类
+ * checked
+ */
 public class NetUtils {
 
     public static final String NETWORK_TYPE_WIFI = "wifi";

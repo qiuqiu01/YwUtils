@@ -17,6 +17,9 @@ import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * checked
+ */
 public class JsonUtils {
     public static String toJson(Object obj) {
         Gson gson = new Gson();

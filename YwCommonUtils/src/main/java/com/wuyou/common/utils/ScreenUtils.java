@@ -9,7 +9,7 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 
 /**
- * 屏幕管理工具，获取设备宽高
+ * 屏幕管理工具类，获取设备宽高
  */
 public class ScreenUtils {
     private ScreenUtils() {
