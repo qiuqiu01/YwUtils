@@ -22,6 +22,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+/**
+ * 日志工具类
+ */
 public class L {
     public static String TAG = "QiuQiu";
     public static boolean LOG_DEBUG = true;

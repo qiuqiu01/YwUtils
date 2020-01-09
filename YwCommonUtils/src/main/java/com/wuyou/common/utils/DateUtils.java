@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * 时间管理工具类
+ * 日期时间管理工具类
  */
 public class DateUtils {
     private static final SimpleDateFormat DATE_FORMAT_DATETIME =
