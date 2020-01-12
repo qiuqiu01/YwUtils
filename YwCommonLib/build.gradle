@@ -1,11 +1,16 @@
-apply plugin: 'com.android.application'
+/* 用作App应用程序时用application，并且放开下面的applicationId的注释 */
+// apply plugin: 'com.android.application'
+/* 用作库时用library，并且注释下面的applicationId */
+apply plugin: 'com.android.library'
+
+
 
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.wuyou.ywutils"
+        /*applicationId "com.wuyou.ywutils"*/
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
