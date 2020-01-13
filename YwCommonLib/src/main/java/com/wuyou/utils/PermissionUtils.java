@@ -24,7 +24,7 @@ import java.util.List;
  *     desc  : 权限相关工具类
  * </pre>
  */
-public class PermissionUtils {
+public final class PermissionUtils {
 
     private static int mRequestCode = -1;
 
