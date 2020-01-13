@@ -47,43 +47,44 @@ import java.util.concurrent.atomic.AtomicLong;
  * </pre>
  * unchecked
  */
-public final class YwCacheUtils {
+public final class CacheUtils {
 
     public static final int TIME_HOUR = 60 * 60;
     public static final int TIME_DAY = TIME_HOUR * 24;
+
     private static final int MAX_SIZE = 1000 * 1000 * 50; // 50 mb
     private static final int MAX_COUNT = Integer.MAX_VALUE; // 不限制存放数据的数量
 
     private CacheManager mCache;
 
-    private static Map<String, YwCacheUtils> mInstanceMap = new HashMap<String, YwCacheUtils>();
+    private static Map<String, CacheUtils> mInstanceMap = new HashMap<String, CacheUtils>();
 
-    private YwCacheUtils() {
+    private CacheUtils() {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
-    public static YwCacheUtils get(Context ctx) {
-        return get(ctx, "YwCacheUtils");
+    public static CacheUtils get(Context ctx) {
+        return get(ctx, "CacheUtils");
     }
 
-    public static YwCacheUtils get(Context ctx, String cacheName) {
+    public static CacheUtils get(Context ctx, String cacheName) {
         File f = new File(ctx.getCacheDir(), cacheName);
         return get(f, MAX_SIZE, MAX_COUNT);
     }
 
-    public static YwCacheUtils get(File cacheDir) {
+    public static CacheUtils get(File cacheDir) {
         return get(cacheDir, MAX_SIZE, MAX_COUNT);
     }
 
-    public static YwCacheUtils get(Context ctx, long max_zise, int max_count) {
-        File f = new File(ctx.getCacheDir(), "YwCacheUtils");
+    public static CacheUtils get(Context ctx, long max_zise, int max_count) {
+        File f = new File(ctx.getCacheDir(), "CacheUtils");
         return get(f, max_zise, max_count);
     }
 
-    public static YwCacheUtils get(File cacheDir, long max_zise, int max_count) {
-        YwCacheUtils manager = mInstanceMap.get(cacheDir.getAbsoluteFile() + myPid());
+    public static CacheUtils get(File cacheDir, long max_zise, int max_count) {
+        CacheUtils manager = mInstanceMap.get(cacheDir.getAbsoluteFile() + myPid());
         if (manager == null) {
-            manager = new YwCacheUtils(cacheDir, max_zise, max_count);
+            manager = new CacheUtils(cacheDir, max_zise, max_count);
             mInstanceMap.put(cacheDir.getAbsolutePath() + myPid(), manager);
         }
         return manager;
@@ -93,7 +94,7 @@ public final class YwCacheUtils {
         return "_" + android.os.Process.myPid();
     }
 
-    private YwCacheUtils(File cacheDir, long max_size, int max_count) {
+    private CacheUtils(File cacheDir, long max_size, int max_count) {
         if (!cacheDir.exists() && !cacheDir.mkdirs()) {
             throw new RuntimeException("can't make dirs in "
                     + cacheDir.getAbsolutePath());
@@ -705,7 +706,6 @@ public final class YwCacheUtils {
 
     /**
      * @title 时间计算工具类
-     * @author 杨福海（michael） www.yangfuhai.com
      * @version 1.0
      */
     private static class Utils {

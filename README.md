@@ -71,7 +71,7 @@
 
 ------
 
-### 缓存相关 -> CacheUtils
+### 缓存相关 -> Cache01Utils
     getInstance    : 获取缓存实例
     put            : 缓存中写入数据
     getBytes       : 缓存中读取字节数组
