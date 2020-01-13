@@ -20,7 +20,7 @@ import java.net.URLEncoder;
  *     desc  : 编解码相关工具类
  * </pre>
  */
-public class EncodeUtils {
+public final class EncodeUtils {
 
     private EncodeUtils() {
         throw new UnsupportedOperationException("U can't instantiate me...");
