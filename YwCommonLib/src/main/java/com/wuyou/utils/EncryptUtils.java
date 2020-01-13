@@ -937,19 +937,23 @@ public class EncryptUtils {
             {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     private static String bytes2HexString(final byte[] bytes) {
-        if (bytes == null) return null;
+        if (bytes == null)
+            return null;
         int len = bytes.length;
-        if (len <= 0) return null;
+        if (len <= 0)
+            return null;
         char[] ret = new char[len << 1];
         for (int i = 0, j = 0; i < len; i++) {
             ret[j++] = hexDigits[bytes[i] >>> 4 & 0x0f];
             ret[j++] = hexDigits[bytes[i] & 0x0f];
         }
+
         return new String(ret);
     }
 
     private static byte[] hexString2Bytes(String hexString) {
-        if (isSpace(hexString)) return null;
+        if (isSpace(hexString))
+            return null;
         int len = hexString.length();
         if (len % 2 != 0) {
             hexString = "0" + hexString;
