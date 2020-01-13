@@ -45,7 +45,7 @@ import javax.xml.transform.stream.StreamSource;
 /**
  * 日志工具类
  */
-public class L {
+public class YwLog {
     public static String TAG = "QiuQiu";
     public static boolean LOG_DEBUG = true;
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
