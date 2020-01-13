@@ -46,6 +46,7 @@ import java.util.concurrent.atomic.AtomicLong;
  *     author: YanWen
  *     time  : 2020/01/13
  *     desc  : 缓存相关工具类,因为库中已经存在CacheUtils了，这里将类命名为Cache01Utils
+ *     warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
  * </pre>
  */
 public class Cache01Utils {
