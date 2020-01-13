@@ -31,7 +31,7 @@ import java.util.concurrent.Executors;
  *     warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
  * </pre>
  */
-public class CrashUtils {
+public final class CrashUtils {
 
     private static String defaultDir;
     private static String dir;

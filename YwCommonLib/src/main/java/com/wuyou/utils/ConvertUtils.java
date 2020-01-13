@@ -33,7 +33,7 @@ import java.io.UnsupportedEncodingException;
  *     warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
  * </pre>
  */
-public class ConvertUtils {
+public final class ConvertUtils {
 
     private ConvertUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");

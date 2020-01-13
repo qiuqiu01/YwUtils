@@ -27,7 +27,7 @@ import java.util.List;
  *     warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
  * </pre>
  */
-public class Device01Utils {
+public final class Device01Utils {
 
     private Device01Utils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
