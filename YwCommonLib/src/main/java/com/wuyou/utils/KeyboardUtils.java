@@ -27,7 +27,7 @@ public final class KeyboardUtils {
     private static int sContentViewInvisibleHeightPre;
 
     private KeyboardUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     /*

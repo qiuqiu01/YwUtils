@@ -31,7 +31,7 @@ import java.util.Enumeration;
  */
 public final class NetworkUtils {
     private NetworkUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     public enum NetworkType {
