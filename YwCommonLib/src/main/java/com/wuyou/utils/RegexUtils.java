@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public final class RegexUtils {
 
     private RegexUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     ///////////////////////////////////////////////////////////////////////////
