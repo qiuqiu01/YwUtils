@@ -1,5 +1,10 @@
 package com.wuyou.constant;
 
+import androidx.annotation.IntDef;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * <pre>
  *     author: YanWen
@@ -25,4 +30,9 @@ public final class MemoryConstants {
      * GB 与 Byte 的倍数
      */
     public static final int GB   = 1073741824;
+
+    @IntDef({BYTE, KB, MB, GB})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Unit {
+    }
 }

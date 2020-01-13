@@ -123,8 +123,6 @@
     drawable2Bitmap, bitmap2Drawable        : drawable 与 bitmap 互转
     drawable2Bytes, bytes2Drawable          : drawable 与 byteArr 互转
     view2Bitmap                             : view 转 Bitmap
-    dp2px, px2dp                            : dp 与 px 互转
-    sp2px, px2sp                            : sp 与 px 互转
 
 ------
 

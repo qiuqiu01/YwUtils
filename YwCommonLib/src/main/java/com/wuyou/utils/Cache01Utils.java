@@ -49,7 +49,7 @@ import java.util.concurrent.atomic.AtomicLong;
  *     warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
  * </pre>
  */
-public class Cache01Utils {
+public final class Cache01Utils {
 
 
     private static final long DEFAULT_MAX_SIZE  = Long.MAX_VALUE;

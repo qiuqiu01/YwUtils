@@ -1,5 +1,10 @@
 package com.wuyou.constant;
 
+import androidx.annotation.IntDef;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * <pre>
  *     author: YanWen
@@ -32,4 +37,9 @@ public final class TimeConstants {
      * 天与毫秒的倍数
      */
     public static final int DAY  = 86400000;
+
+    @IntDef({MSEC, SEC, MIN, HOUR, DAY})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Unit {
+    }
 }
