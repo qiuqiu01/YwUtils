@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -27,9 +27,17 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 /**
- * 文件工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 文件管理工具类
+ * </pre>
  */
-public class FileUtils {
+public final class FileUtils {
+
+    private FileUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static void closeIO(Closeable... closeables) {
         if (null == closeables || closeables.length <= 0) {
@@ -235,5 +243,35 @@ public class FileUtils {
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         mContext.startActivity(intent);
+    }
+
+    /**
+     * 根据文件路径获取文件
+     *
+     * @param filePath 文件路径
+     * @return 文件
+     */
+    public static File getFileByPath(final String filePath) {
+        return isSpace(filePath) ? null : new File(filePath);
+    }
+
+    private static boolean isSpace(final String s) {
+        if (s == null) return true;
+        for (int i = 0, len = s.length(); i < len; ++i) {
+            if (!Character.isWhitespace(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 判断文件是否存在
+     *
+     * @param file 文件
+     * @return {@code true}: 存在<br>{@code false}: 不存在
+     */
+    public static boolean isFileExists(final File file) {
+        return file != null && file.exists();
     }
 }

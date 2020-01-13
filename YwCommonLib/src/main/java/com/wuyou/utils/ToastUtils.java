@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/8.
+ * Created by QiuQiu on 2020/01/08.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -9,9 +9,17 @@ import android.content.Context;
 import android.widget.Toast;
 
 /**
- * Toast工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/08
+ *     desc  : Toast工具类
+ * </pre>
  */
-public class ToastUtils {
+public final class ToastUtils {
+
+	private ToastUtils() {
+		throw new UnsupportedOperationException("U can't instantiate me...");
+	}
 
 	/**
 	 * 之前显示的内容

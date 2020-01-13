@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2020.
+ * Created by QiuQiu on 2020/01/13.
+ *  All Rights Reserved.
+ */
 package com.wuyou.utils;
 
 import android.annotation.SuppressLint;
@@ -11,6 +16,27 @@ import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 import java.util.List;
 
+
+/**
+ * ━━━━ Code is far away from ━━━━━━
+ * 　　  () 　　　  ()
+ * 　　  ( ) 　　　( )
+ * 　　  ( ) 　　　( )
+ * 　　┏┛┻━━━┛┻┓
+ * 　　┃　　　c　　　┃
+ * 　　┃　┳┛　┗┳　┃
+ * 　　┃　　　┻　　　┃
+ * 　　┗━┓　　　┏━┛
+ * 　　　　┃　　　┃
+ * 　　　　┃　　　┗━━━┓
+ * 　　　　┃　　　　　　　┣┓
+ * 　　　　┃　　　　　　　┏┛
+ * 　　　　┗┓┓┏━┳┓┏┛
+ * 　　　　　┃┫┫　┃┫┫
+ * 　　　　　┗┻┛　┗┻┛
+ * ━━━━ bug with the XYY protecting━━━
+ */
+
 /**
  * <pre>
  *     author: YanWen
@@ -18,7 +44,7 @@ import java.util.List;
  *     desc  : Utils 初始化相关
  * </pre>
  */
-public class YwUtils {
+public final class YwUtils {
 
     @SuppressLint("StaticFieldLeak")
     private static Application sApplication;
@@ -65,7 +91,7 @@ public class YwUtils {
     };
 
     private YwUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     /**

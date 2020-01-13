@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -21,10 +21,13 @@ import android.text.TextUtils;
 import java.util.List;
 
 /**
- * 网络工具类
- * checked
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 网络工具类
+ * </pre>
  */
-public class NetUtils {
+public final class NetUtils {
 
     public static final String NETWORK_TYPE_WIFI = "wifi";
     public static final String NETWORK_TYPE_3G = "3g";
@@ -32,6 +35,10 @@ public class NetUtils {
     public static final String NETWORK_TYPE_WAP = "wap";
     public static final String NETWORK_TYPE_UNKNOWN = "unknown";
     public static final String NETWORK_TYPE_DISCONNECT = "disconnect";
+
+    private NetUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static int getNetworkType(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

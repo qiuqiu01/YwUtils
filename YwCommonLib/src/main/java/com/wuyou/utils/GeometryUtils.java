@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2017.
- * Created by QiuQiu on 2017/6/6.
+ * Created by QiuQiu on 2017/06/06.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -8,10 +8,17 @@ package com.wuyou.utils;
 import android.graphics.PointF;
 
 /**
- * 几何图形工具
- * Created by QiuQiu on 2017/6/6.
+ * <pre>
+ *     author: YanWen
+ *     time  : 2017/06/06
+ *     desc  : 几何图形工具类
+ * </pre>
  */
-public class GeometryUtils {
+public final class GeometryUtils {
+
+	private GeometryUtils() {
+		throw new UnsupportedOperationException("U can't instantiate me...");
+	}
 	
 	/**
 	 * As meaning of method name.

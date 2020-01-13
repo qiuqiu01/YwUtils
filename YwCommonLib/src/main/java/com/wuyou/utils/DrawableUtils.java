@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2017.
- * Created by QiuQiu on 2017/7/5.
+ * Created by QiuQiu on 2017/07/05.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -10,9 +10,19 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 
 /**
- * Drawable工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2017/07/05
+ *     desc  : Drawable工具类
+ * 有部分敏感权限，先用声明@SuppressLint("MissingPermission")忽略掉
+ * </pre>
  */
-public class DrawableUtils {
+public final class DrawableUtils {
+
+	private DrawableUtils() {
+		throw new UnsupportedOperationException("U can't instantiate me...");
+	}
+
 	/**
 	 * 生成圆角图片，对应的xml中的shape标签
 	 * @return

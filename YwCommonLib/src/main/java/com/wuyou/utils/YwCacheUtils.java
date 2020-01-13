@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -38,12 +38,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * 缓存工具类
- * 参考：https://github.com/yangfuhai/ASimpleCache
- * https://blog.csdn.net/zuiwuyuan/article/details/47904003
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : Activity缓存工具类
+ *     参考：https://github.com/yangfuhai/ASimpleCache
+ *     https://blog.csdn.net/zuiwuyuan/article/details/47904003
+ * </pre>
  * unchecked
  */
-public class YwCacheUtils {
+public final class YwCacheUtils {
 
     public static final int TIME_HOUR = 60 * 60;
     public static final int TIME_DAY = TIME_HOUR * 24;
@@ -53,6 +57,10 @@ public class YwCacheUtils {
     private CacheManager mCache;
 
     private static Map<String, YwCacheUtils> mInstanceMap = new HashMap<String, YwCacheUtils>();
+
+    private YwCacheUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static YwCacheUtils get(Context ctx) {
         return get(ctx, "YwCacheUtils");

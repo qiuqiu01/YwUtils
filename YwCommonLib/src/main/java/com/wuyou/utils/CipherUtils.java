@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -15,10 +15,19 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * 加密工具类
- * 部分功能和Md5Utils工具重复，但保留Md5Utils工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 加密工具类
+ *  * 部分功能和Md5Utils工具重复，但保留Md5Utils工具类
+ *  * unchecked
+ * </pre>
  */
-public class CipherUtils {
+public final class CipherUtils {
+
+    private CipherUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static String encode(String input) {
         try {

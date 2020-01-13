@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -32,10 +32,18 @@ import java.util.Locale;
 import java.util.UUID;
 
 /**
- * 设备工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 设备工具类
  * 有部分敏感权限，先用声明@SuppressLint("MissingPermission")忽略掉
+ * </pre>
  */
-public class DeviceUtils {
+public final class DeviceUtils {
+
+    private DeviceUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static String getAndroidID(Context ctx) {
         return Settings.Secure.getString(ctx.getContentResolver(), Settings.Secure.ANDROID_ID);

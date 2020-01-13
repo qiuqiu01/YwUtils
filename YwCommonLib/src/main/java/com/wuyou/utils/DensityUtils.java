@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2017.
- * Created by QiuQiu on 2017/7/5.
+ * Created by QiuQiu on 2017/07/05.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -18,9 +18,17 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * 设备像素之间的转换
+ * <pre>
+ *     author: YanWen
+ *     time  : 2017/07/05
+ *     desc  : 设备像素之间的转换
+ * </pre>
  */
-public class DensityUtils {
+public final class DensityUtils {
+
+    private DensityUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)

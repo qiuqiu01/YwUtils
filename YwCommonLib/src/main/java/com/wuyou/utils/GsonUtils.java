@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -23,7 +23,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class GsonUtils {
+/**
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : Gson工具类
+ * </pre>
+ */
+public final class GsonUtils {
 
     private static Gson gson = null;
 
@@ -31,6 +38,10 @@ public class GsonUtils {
         if (gson == null) {
             gson = new Gson();
         }
+    }
+
+    private GsonUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     public static String objectToJson(Object ts) {

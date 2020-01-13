@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -26,9 +26,17 @@ import android.widget.TextView;
 import com.wuyou.R;
 
 /**
- * View工具
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : View工具类
+ * </pre>
  */
-public class ViewUtils {
+public final class ViewUtils {
+
+    private ViewUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     /**
      * 将自己从父窗口中移除

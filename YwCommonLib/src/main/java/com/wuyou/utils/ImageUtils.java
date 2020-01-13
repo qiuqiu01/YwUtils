@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -28,10 +28,18 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * Image工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : Image工具类
+ * </pre>
  * unchecked
  */
-public class ImageUtils {
+public final class ImageUtils {
+
+    private ImageUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     /**
      * 计算图片采样率

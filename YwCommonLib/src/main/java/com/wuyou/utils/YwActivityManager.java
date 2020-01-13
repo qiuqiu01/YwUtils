@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2020.
+ * Created by QiuQiu on 2020/01/13.
+ *  All Rights Reserved.
+ */
+
 package com.wuyou.utils;
 
 import android.app.Activity;
@@ -6,7 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class YwActivityManager {
+/**
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/13
+ *     desc  : Activity管理工具类
+ * </pre>
+ */
+public final class YwActivityManager {
 
     private static YwActivityManager instance;
 

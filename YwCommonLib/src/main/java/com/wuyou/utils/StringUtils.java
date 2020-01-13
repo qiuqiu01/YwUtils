@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -8,7 +8,19 @@ package com.wuyou.utils;
 
 import java.text.DecimalFormat;
 
-public class StringUtils {
+/**
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : String工具类
+ * </pre>
+ */
+public final class StringUtils {
+
+    private StringUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
+
     /**
      * The pyvalue.
      */

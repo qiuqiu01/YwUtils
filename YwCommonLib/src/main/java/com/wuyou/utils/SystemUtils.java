@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -36,9 +36,17 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * 系统工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 系统工具类
+ * </pre>
  */
-public class SystemUtils {
+public final class SystemUtils {
+
+    private SystemUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static void sendSMS(Context cxt, String smsBody) {
         Uri smsToUri = Uri.parse("smsto:");

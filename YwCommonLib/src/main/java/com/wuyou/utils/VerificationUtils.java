@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -12,10 +12,20 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 /**
- * 验证工具类
- * 验证市面上常用的字符串，比如手机号，邮箱等
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 验证工具类
+ *      验证市面上常用的字符串，比如手机号，邮箱等
+ *      TODO 配合RegexConstants添加更多的方法判断
+ * </pre>
  */
-public class VerificationUtils {
+public final class VerificationUtils {
+
+    private VerificationUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
+
     /**
      * 邮政编码
      */

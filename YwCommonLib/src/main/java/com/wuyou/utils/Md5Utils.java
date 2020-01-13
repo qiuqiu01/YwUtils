@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2017.
- * Created by QiuQiu on 2017/6/6.
+ * Created by QiuQiu on 2017/06/06.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -9,11 +9,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Md5加密工具类
- * Created by QiuQiu on 2017/6/6.
+ * <pre>
+ *     author: YanWen
+ *     time  : 2017/06/06
+ *     desc  : Md5加密工具类
+ * </pre>
  */
+public final class Md5Utils {
 
-public class Md5Utils {
+    private Md5Utils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
+
     public static String encode(String password) {
         try {
             // 1.获取MessageDigest实例,拿到一个MD5转换器（如果想要SHA1参数换成”SHA1”）

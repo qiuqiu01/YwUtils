@@ -1,22 +1,30 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
 package com.wuyou.utils;
 
 /**
- * 坐标转换工具类
- * 提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换
- * https://github.com/wandergis/coordtransform
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 坐标转换工具类
+ * * 提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换
+ * * https://github.com/wandergis/coordtransform
+ * </pre>
  */
-public class CoordinateTransformUtil {
+public final class CoordinateTransformUtil {
 
     static double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
     static double pi = 3.1415926535897932384626;
     static double a = 6378245.0;
     static double ee = 0.00669342162296594323;
+
+    private CoordinateTransformUtil() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static double[] bd09towgs84(double lng, double lat) {
         double[] gcj = bd09togcj02(lng, lat);

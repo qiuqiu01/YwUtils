@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2017.
- * Created by QiuQiu on 2017/7/5.
+ * Created by QiuQiu on 2017/07/05.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -10,9 +10,18 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 /**
- * 封装SharePreferences
+ * <pre>
+ *     author: YanWen
+ *     time  : 2017/07/05
+ *     desc  : 封装SharePreferences工具类
+ * </pre>
  */
-public class SPUtils {
+public final class SPUtils {
+
+    private SPUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
+
     /**
      * 定义默认的SharePreferences配置文件的文件名
      */

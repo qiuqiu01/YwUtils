@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -18,9 +18,18 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * checked
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : Json工具类
+ * </pre>
  */
-public class JsonUtils {
+public final class JsonUtils {
+
+    private JsonUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
+
     public static String toJson(Object obj) {
         Gson gson = new Gson();
         return gson.toJson(obj);

@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/8.
+ * Created by QiuQiu on 2020/01/08.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -20,14 +20,22 @@ import android.media.ThumbnailUtils;
 import android.os.Environment;
 
 /**
- * Bitmap工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/08
+ *     desc  : Bitmap工具类
  * unchecked
+ * </pre>
  */
-public class BitmapUtils {
+public final class BitmapUtils {
 
     private static final int THUMB_WIDTH = 200;
     private static final int THUMB_HEIGHT = 200;
     private static final String IMAGE_FOLDER = Environment.getExternalStorageDirectory().getAbsolutePath() + "/BitmapTemp/";
+
+    private BitmapUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     /**
      * 更改图片尺寸

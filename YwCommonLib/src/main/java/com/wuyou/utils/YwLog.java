@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 package com.wuyou.utils;
@@ -22,30 +22,17 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-/**
- * ━━━━ Code is far away from ━━━━━━
- * 　　  () 　　　  ()
- * 　　  ( ) 　　　( )
- * 　　  ( ) 　　　( )
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　c　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　┻　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　　　　┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━ bug with the XYY protecting━━━
- */
+
+
 
 /**
- * 日志工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 日志工具类
+ * </pre>
  */
-public class YwLog {
+public final class YwLog {
     public static String TAG = "QiuQiu";
     public static boolean LOG_DEBUG = true;
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
@@ -59,6 +46,10 @@ public class YwLog {
     private static final int XML = 9;
 
     private static final int JSON_INDENT = 4;
+
+    private YwLog() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static void init(boolean isDebug, String tag) {
         TAG = tag;

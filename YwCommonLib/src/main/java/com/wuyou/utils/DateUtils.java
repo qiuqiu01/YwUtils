@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * Created by QiuQiu on 2020/1/9.
+ * Created by QiuQiu on 2020/01/09.
  * All Rights Reserved.
  */
 
@@ -12,15 +12,23 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * 日期时间管理工具类
+ * <pre>
+ *     author: YanWen
+ *     time  : 2020/01/09
+ *     desc  : 日期时间管理工具类
+ * </pre>
  */
-public class DateUtils {
+public final class DateUtils {
     private static final SimpleDateFormat DATE_FORMAT_DATETIME =
             new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat DATE_FORMAT_DATE =
             new SimpleDateFormat("yyyy-MM-dd");
     private static final SimpleDateFormat DATE_FORMAT_TIME =
             new SimpleDateFormat("HH:mm:ss");
+
+    private DateUtils() {
+        throw new UnsupportedOperationException("U can't instantiate me...");
+    }
 
     public static String formatDataTime(long date) {
         return DATE_FORMAT_DATETIME.format(new Date(date));
