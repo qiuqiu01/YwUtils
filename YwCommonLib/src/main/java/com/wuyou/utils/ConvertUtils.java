@@ -30,6 +30,7 @@ import java.io.UnsupportedEncodingException;
  *     author: YanWen
  *     time  : 2020/01/13
  *     desc  : 转换相关工具类
+ *     warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
  * </pre>
  */
 public class ConvertUtils {
