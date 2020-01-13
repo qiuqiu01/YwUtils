@@ -28,7 +28,7 @@ import java.util.Map;
 public final class EmptyUtils {
 
     private EmptyUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     /**

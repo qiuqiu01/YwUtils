@@ -30,7 +30,7 @@ import java.util.List;
 public final class Device01Utils {
 
     private Device01Utils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     /**

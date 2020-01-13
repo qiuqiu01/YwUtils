@@ -31,7 +31,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class EncryptUtils {
 
     private EncryptUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     ///////////////////////////////////////////////////////////////////////////

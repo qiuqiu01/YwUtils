@@ -36,7 +36,7 @@ import java.io.UnsupportedEncodingException;
 public final class ConvertUtils {
 
     private ConvertUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     private static final char hexDigits[] =

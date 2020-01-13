@@ -34,7 +34,7 @@ import java.util.List;
 public final class FileIOUtils {
 
     private FileIOUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     private static final String LINE_SEP = System.getProperty("line.separator");

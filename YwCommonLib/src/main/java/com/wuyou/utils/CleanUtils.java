@@ -20,7 +20,7 @@ import java.io.File;
 public class CleanUtils {
 
     private CleanUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
     /**
