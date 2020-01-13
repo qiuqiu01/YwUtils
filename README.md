@@ -131,7 +131,7 @@
 
 ------
 
-### 设备相关 -> DeviceUtils
+### 设备相关 -> Device01Utils
     isDeviceRooted   : 判断设备是否 rooted
     getSDKVersion    : 获取设备系统版本号
     getAndroidID     : 获取设备 AndroidID
