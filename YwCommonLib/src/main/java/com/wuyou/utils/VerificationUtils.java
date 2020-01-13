@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
  *     time  : 2020/01/09
  *     desc  : 验证工具类
  *      验证市面上常用的字符串，比如手机号，邮箱等
- *      TODO 配合RegexConstants添加更多的方法判断
  * </pre>
  */
 public final class VerificationUtils {
