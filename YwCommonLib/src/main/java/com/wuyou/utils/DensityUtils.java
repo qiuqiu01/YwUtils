@@ -53,18 +53,9 @@ public final class DensityUtils {
      * @return
      */
     public static float px2dip(Context context, float pxValue) {
-        /**
-         *  方式1，先注释掉
-         *  放开注释时注意修改返回值
-        */
-//        final float scale = context.getResources().getDisplayMetrics().density;
-//        return (int) (pxValue / scale + 0.5f);
-
-        /**
-         * 方式2
-         */
         final float scale = context.getResources().getDisplayMetrics().density;
-        return (pxValue / scale);
+
+        return (int) (pxValue / scale + 0.5f);
     }
 
     /**
@@ -90,16 +81,9 @@ public final class DensityUtils {
      * @return
      */
     public static float px2sp(Context context, float pxVal) {
-        /**
-         * 方式1，先注释掉
-         */
-//        float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-//        return (int) (pxVal / fontScale + 0.5f);
+        float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
 
-        /**
-         * 方式2
-         */
-        return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
+        return (int) (pxVal / fontScale + 0.5f);
     }
 
     /**
