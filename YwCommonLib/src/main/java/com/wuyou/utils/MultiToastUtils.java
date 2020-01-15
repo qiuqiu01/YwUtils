@@ -33,11 +33,11 @@ import java.lang.ref.WeakReference;
  * <pre>
  *     author: YanWen
  *     time  : 2020/01/13
- *     desc  : 吐司相关工具类，因为lib已经存在ToastUtils类，这里命名为Toast01Utils;
+ *     desc  : 吐司相关工具类;
  *     warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
  * </pre>
  */
-public final class Toast01Utils {
+public final class MultiToastUtils {
 
     private static final int     COLOR_DEFAULT = 0xFEFFFFFF;
     private static final Handler HANDLER       = new Handler(Looper.getMainLooper());
@@ -52,7 +52,7 @@ public final class Toast01Utils {
     private static int bgResource = -1;
     private static int msgColor   = COLOR_DEFAULT;
 
-    private Toast01Utils() {
+    private MultiToastUtils() {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
@@ -64,9 +64,9 @@ public final class Toast01Utils {
      * @param yOffset y 偏移
      */
     public static void setGravity(final int gravity, final int xOffset, final int yOffset) {
-        Toast01Utils.gravity = gravity;
-        Toast01Utils.xOffset = xOffset;
-        Toast01Utils.yOffset = yOffset;
+        MultiToastUtils.gravity = gravity;
+        MultiToastUtils.xOffset = xOffset;
+        MultiToastUtils.yOffset = yOffset;
     }
 
     /**
@@ -75,7 +75,7 @@ public final class Toast01Utils {
      * @param backgroundColor 背景色
      */
     public static void setBgColor(@ColorInt final int backgroundColor) {
-        Toast01Utils.bgColor = backgroundColor;
+        MultiToastUtils.bgColor = backgroundColor;
     }
 
     /**
@@ -84,7 +84,7 @@ public final class Toast01Utils {
      * @param bgResource 背景资源
      */
     public static void setBgResource(@DrawableRes final int bgResource) {
-        Toast01Utils.bgResource = bgResource;
+        MultiToastUtils.bgResource = bgResource;
     }
 
     /**
@@ -93,7 +93,7 @@ public final class Toast01Utils {
      * @param msgColor 颜色
      */
     public static void setMsgColor(@ColorInt final int msgColor) {
-        Toast01Utils.msgColor = msgColor;
+        MultiToastUtils.msgColor = msgColor;
     }
 
     /**
