@@ -1,24 +1,34 @@
 # YwUtils
     第一次使用GitHub，先创建一个YwUtils工程，后面将遇到的工具类或者工具方法提交上来
 
-引入“implementation 'com.blankj:utilcode:1.10.0'”的代码的相关说明：
+##待解决
+	1、Cache01Utils和CacheUtils。
+	2、合并Device01Utils和DeviceUtils。
+	3、合并File01Utils和FileUtils，以及搞明白和FileIOUtils的关系
+	4、合并Image01Utils和ImageUtils。
+	5、合并NetUtils和NetworkUtils。
+	6、合并RegexUtils和VerificationUtils。
+	7、合并SP01Utils和SPUtils。
+	8、合并String01Utils和StringUtils。
+	9、合并YwLog和LogUtils。
+	10、补充md说明文档（将未标注的补充上来）
+
 
 ## How to use
-```
+>
     // init it in the function of onCreate in ur Application
     Utils.init(application);
-```
 
 ## Proguard
-```
+>
     -keep class com.blankj.utilcode.** { *; }
     -keepclassmembers class com.blankj.utilcode.** { *; }
     -dontwarn com.blankj.utilcode.**
-```
 
 ## APIs
 
 ### Activity 相关  -> ActivityUtils.java
+>
     isActivityExists               : 判断 Activity 是否存在
     startActivity                  : 启动 Activity
     startActivities                : 启动多个 Activity
@@ -33,9 +43,10 @@
     finishAllActivities            : 结束所有 Activity
     finishAllActivitiesExceptNewest: 结束除最新之外的所有 Activity
 
-------
+---
 
 ### App 相关 -> AppUtils
+>
     isInstallApp         : 判断 App 是否安装
     installApp           : 安装 App（支持 8.0）
     installAppSilent     : 静默安装 App
@@ -50,9 +61,10 @@
     getAppIcon           : 获取 App 图标
     getAppPath           : 获取 App 路径
 
-------
+---
 
 ### 栏相关 -> BarUtils
+>
     getStatusBarHeight                   : 获取状态栏高度（px）
     setStatusBarVisibility               : 设置状态栏是否可见
     isStatusBarVisible                   : 判断状态栏是否可见
@@ -69,9 +81,10 @@
     setNavBarImmersive                   : 设置导航栏沉浸式
     isNavBarVisible                      : 判断导航栏是否可见
 
-------
+---
 
 ### 缓存相关 -> Cache01Utils
+>
     getInstance    : 获取缓存实例
     put            : 缓存中写入数据
     getBytes       : 缓存中读取字节数组
@@ -87,9 +100,10 @@
     remove         : 根据键值移除缓存
     clear          : 清除所有缓存
 
-------
+---
 
 ### 清除相关 -> CleanUtils
+>
     cleanInternalCache   : 清除内部缓存
     cleanInternalFiles   : 清除内部文件
     cleanInternalDbs     : 清除内部数据库
@@ -101,12 +115,14 @@
 ------
 
 ### 关闭相关 -> CloseUtils
+>
     closeIO       : 关闭 IO
     closeIOQuietly: 安静关闭 IO
 
-------
+---
 
 ### 转换相关 -> ConvertUtils
+>
     bytes2HexString, hexString2Bytes        : byteArr 与 hexString 互转
     chars2Bytes, bytes2Chars                : charArr 与 byteArr 互转
     memorySize2Byte, byte2MemorySize        : 以 unit 为单位的内存大小与字节数互转
@@ -124,14 +140,16 @@
     drawable2Bytes, bytes2Drawable          : drawable 与 byteArr 互转
     view2Bitmap                             : view 转 Bitmap
 
-------
+---
 
 ### 崩溃相关 -> CrashUtils
+>
     init: 初始化
 
-------
+---
 
 ### 设备相关 -> Device01Utils
+>
     isDeviceRooted   : 判断设备是否 rooted
     getSDKVersion    : 获取设备系统版本号
     getAndroidID     : 获取设备 AndroidID
@@ -143,15 +161,17 @@
     reboot2Recovery  : 重启到 recovery
     reboot2Bootloader: 重启到 bootloader
 
-------
+---
 
 ### 判空相关 -> EmptyUtils.java
+>
     isEmpty   : 判断对象是否为空
     isNotEmpty: 判断对象是否非空
 
-------
+---
 
 ### 编码解码相关 -> EncodeUtils
+>
     urlEncode          : URL 编码
     urlDecode          : URL 解码
     base64Encode       : Base64 编码
@@ -161,9 +181,10 @@
     htmlEncode         : Html 编码
     htmlDecode         : Html 解码
 
-------
+---
 
 ### 加密解密相关 -> EncryptUtils
+>
     encryptMD2, encryptMD2ToString                        : MD2 加密
     encryptMD5, encryptMD5ToString                        : MD5 加密
     encryptMD5File, encryptMD5File2String                 : MD5 加密文件
@@ -185,9 +206,10 @@
     encryptAES, encryptAES2HexString, encryptAES2Base64   : AES 加密
     decryptAES, decryptHexStringAES, decryptBase64AES     : AES 解密
 
-------
+---
 
 ### 文件相关 -> FileIOUtils
+>
     writeFileFromIS            : 将输入流写入文件
     writeFileFromBytesByStream : 将字节数组写入文件
     writeFileFromBytesByChannel: 将字节数组写入文件
@@ -200,9 +222,10 @@
     readFile2BytesByMap        : 读取文件到字节数组中
     setBufferSize              : 设置缓冲区尺寸
 
-------
+---
 
 ### 文件相关 -> FileUtils
+>
     getFileByPath             : 根据文件路径获取文件
     isFileExists              : 判断文件是否存在
     rename                    : 重命名文件
@@ -236,9 +259,10 @@
     getFileNameNoExtension    : 根据全路径获取文件名不带拓展名
     getFileExtension          : 根据全路径获取文件拓展名
 
-------
+---
 
 ### Fragment 相关 -> FragmentUtils
+>
     add                   : 新增 fragment
     show                  : 显示 fragment
     hide                  : 隐藏 fragment
@@ -264,9 +288,10 @@
     setBackgroundResource : 设置背景资源
     setBackground         : 设置背景
 
-------
+---
 
 ### 图片相关 -> ImageUtils
+>
     bitmap2Bytes, bytes2Bitmap      : bitmap 与 byteArr 互转
     drawable2Bitmap, bitmap2Drawable: drawable 与 bitmap 互转
     drawable2Bytes, bytes2Drawable  : drawable 与 byteArr 互转
@@ -296,9 +321,10 @@
     compressByQuality               : 按质量压缩
     compressBySampleSize            : 按采样大小压缩
 
-------
+---
 
 ### 意图相关 -> IntentUtils
+>
     getInstallAppIntent        : 获取安装 App（支持 6.0）的意图
     getUninstallAppIntent      : 获取卸载 App 的意图
     getLaunchAppIntent         : 获取打开 App 的意图
@@ -309,9 +335,10 @@
     getShutdownIntent          : 获取关机的意图
     getCaptureIntent           : 获取拍照的意图
 
-------
+---
 
 ### 键盘相关 -> KeyboardUtils
+>
     showSoftInput                   : 动态显示软键盘
     hideSoftInput                   : 动态隐藏软键盘
     toggleSoftInput                 : 切换键盘显示与否状态
@@ -319,9 +346,10 @@
     registerSoftInputChangedListener: 注册软键盘改变监听器
     clickBlankArea2HideSoftInput    : 点击屏幕空白区域隐藏软键盘
 
-------
+---
 
 ### 日志相关 -> LogUtils
+>
     getConfig               : 获取 log 配置
     Config.setLogSwitch     : 设置 log 总开关
     Config.setConsoleSwitch : 设置 log 控制台开关
@@ -350,9 +378,24 @@
     json                    : log 字符串之 json
     xml                     : log 字符串之 xml
 
-------
+---
+
+### 吐司相关 -> MultiToastUtils
+>
+    setGravity     : 设置吐司位置
+    setBgColor     : 设置背景颜色
+    setBgResource  : 设置背景资源
+    setMessageColor: 设置消息颜色
+    showShort      : 显示短时吐司
+    showLong       : 显示长时吐司
+    showCustomShort: 显示短时自定义吐司
+    showCustomLong : 显示长时自定义吐司
+    cancel         : 取消吐司显示
+
+---
 
 ### 网络相关 -> NetUtils
+>
     openWirelessSettings  : 打开网络设置界面
     isConnected           : 判断网络是否连接
     isAvailableByPing     : 判断网络是否可用
@@ -369,16 +412,18 @@
     getIPAddress          : 获取 IP 地址
     getDomainAddress      : 获取域名 ip 地址
 
-------
+---
 
 ### 对象相关 -> ObjectUtils
+>
     isEmpty   : 判断对象是否为空
     isNotEmpty: 判断对象是否非空
     equals    : 判断对象是否相等
 
-------
+---
 
 ### 手机相关 -> PhoneUtils
+>
     isPhone            : 判断设备是否是手机
     getIMEI            : 获取 IMEI 码
     getIMSI            : 获取 IMSI 码
@@ -395,16 +440,18 @@
     getContactNum      : 打开手机联系人界面点击联系人后便获取该号码
     getAllSMS          : 获取手机短信并保存到 xml 中
 
-------
+---
 
 ### 进程相关 -> ProcessUtils
+>
     getForegroundProcessName  : 获取前台线程包名
     killAllBackgroundProcesses: 杀死所有的后台服务进程
     killBackgroundProcesses   : 杀死后台服务进程
 
-------
+---
 
 ### 正则相关 -> RegexUtils
+>
     isMobileSimple : 验证手机号（简单）
     isMobileExact  : 验证手机号（精确）
     isTel          : 验证电话号码
@@ -422,9 +469,10 @@
     getReplaceFirst: 替换正则匹配的第一部分
     getReplaceAll  : 替换所有正则匹配的部分
 
-------
+---
 
 ### 屏幕相关 -> ScreenUtils
+>
     getScreenWidth     : 获取屏幕的宽度（单位：px）
     getScreenHeight    : 获取屏幕的高度（单位：px）
     getScreenDensity   : 获取屏幕密度
@@ -441,15 +489,17 @@
     getSleepDuration   : 获取进入休眠时长
     isTablet           : 判断是否是平板
 
-------
+---
 
 ### SD 卡相关 -> SDCardUtils
+>
     isSDCardEnable: 判断 SD 卡是否可用
     getSDCardPaths: 获取 SD 卡路径
 
-------
+---
 
 ### 栏服务相关 -> ServiceUtils
+>
     getAllRunningService: 获取所有运行的服务
     startService        : 启动服务
     stopService         : 停止服务
@@ -457,14 +507,16 @@
     unbindService       : 解绑服务
     isServiceRunning    : 判断服务是否运行
 
-------
+---
 
 ### Shell 相关 -> ShellUtils
+>
     execCmd: 是否是在 root 下执行命令
 
-------
+---
 
 ### 尺寸相关 -> SizeUtils
+>
     dp2px, px2dp     : dp 与 px 转换
     sp2px, px2sp     : sp 与 px 转换
     applyDimension   : 各种单位转换
@@ -473,9 +525,10 @@
     getMeasuredWidth : 获取测量视图宽度
     getMeasuredHeight: 获取测量视图高度
 
-------
+---
 
 ### Snackbar 相关 -> SnackbarUtils
+>
     with           : 设置 snackbar 依赖 view
     setMessage     : 设置消息
     setMessageColor: 设置消息颜色
@@ -492,9 +545,10 @@
     getView        : 获取 snackbar 视图
     addView        : 添加 snackbar 视图
 
-------
+---
 
 ### SpannableString 相关 -> SpanUtils
+>
     setFlag           : 设置标识
     setForegroundColor: 设置前景色
     setBackgroundColor: 设置背景色
@@ -528,9 +582,10 @@
     appendSpace       : 追加空白
     create            : 创建样式字符串
 
-------
+---
 
 ### SP 相关 -> SPUtils
+>
     getInstance: 获取 SP 实例
     put        : SP 中写入数据
     getString  : SP 中读取 String
@@ -543,9 +598,10 @@
     remove     : SP 中移除该 key
     clear      : SP 中清除所有数据
 
-------
+---
 
 ### 字符串相关 -> StringUtils
+>
     isEmpty         : 判断字符串是否为 null 或长度为 0
     isTrimEmpty     : 判断字符串是否为 null 或全为空格
     isSpace         : 判断字符串是否为 null 或全为空白字符
@@ -559,9 +615,10 @@
     toDBC           : 转化为半角字符
     toSBC           : 转化为全角字符
 
-------
+---
 
 ### 时间相关 -> TimeUtils
+>
     millis2String           : 将时间戳转为时间字符串
     string2Millis           : 将时间字符串转为时间戳
     string2Date             : 将时间字符串转为 Date 类型
@@ -592,27 +649,16 @@
     getChineseZodiac        : 获取生肖
     getZodiac               : 获取星座
 
-------
 
-### 吐司相关 -> ToastUtils
-    setGravity     : 设置吐司位置
-    setBgColor     : 设置背景颜色
-    setBgResource  : 设置背景资源
-    setMessageColor: 设置消息颜色
-    showShort      : 显示短时吐司
-    showLong       : 显示长时吐司
-    showCustomShort: 显示短时自定义吐司
-    showCustomLong : 显示长时自定义吐司
-    cancel         : 取消吐司显示
-
-------
+---
 
 ### 压缩相关 -> ZipUtils
+>
     zipFile           : 压缩文件
     unzipFile         : 解压文件
     unzipFileByKeyword: 解压带有关键字的文件
     getFilesPath      : 获取压缩文件中的文件路径链表
     getComments       : 获取压缩文件中的注释链表
 
-------
+---
 

@@ -51,7 +51,6 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public final class Cache01Utils {
 
-
     private static final long DEFAULT_MAX_SIZE  = Long.MAX_VALUE;
     private static final int  DEFAULT_MAX_COUNT = Integer.MAX_VALUE;
 
