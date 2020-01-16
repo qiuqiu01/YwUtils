@@ -3,7 +3,6 @@
 
 ##待解决
 	1、Cache01Utils和CacheUtils。
-	2、合并Device01Utils和DeviceUtils。
 	3、合并File01Utils和FileUtils，以及搞明白和FileIOUtils的关系
 	4、合并Image01Utils和ImageUtils。
 	5、合并NetUtils和NetworkUtils。
@@ -148,18 +147,25 @@
 
 ---
 
-### 设备相关 -> Device01Utils
+### 设备相关 -> DeviceUtils
 >
     isDeviceRooted   : 判断设备是否 rooted
-    getSDKVersion    : 获取设备系统版本号
-    getAndroidID     : 获取设备 AndroidID
-    getMacAddress    : 获取设备 MAC 地址
-    getManufacturer  : 获取设备厂商
-    getModel         : 获取设备型号
     shutdown         : 关机
     reboot           : 重启
     reboot2Recovery  : 重启到 recovery
     reboot2Bootloader: 重启到 bootloader
+    getAndroidID     : 获取设备 AndroidID
+    getIMEI     	 : 获取设备 IMEI
+    getIMSI     	 : 获取设备 IMSI
+    getWifiMacAddr   : 获取设备连接Wifi时的 MAC 地址
+    getIP     		 : 获取设备的ip地址
+    intToIp     	 : 将int数据转化成ip地址
+    getSerial     	 : 获取硬件序列号
+	getSIMSerial     : 获取SIM卡序列号
+    getSDKVersion    : 获取设备系统版本号
+    getMacAddress    : 获取设备 MAC 地址
+    getManufacturer  : 获取设备厂商
+    getModel         : 获取设备型号
 
 ---
 

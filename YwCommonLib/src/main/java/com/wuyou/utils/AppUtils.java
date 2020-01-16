@@ -39,9 +39,9 @@ import java.util.regex.Pattern;
  *     time  : 2020/01/09
  *     desc  : App相关工具类
  *  warning  : 部分功能需要先到Application类里实现初始化---- YwUtils.init(application);
- *          ** 该工具类综合了多人代码，有一些需要在App里初始化，有一些则不用
- *          ** 用“****无需init****”标注的方法可直接通过AppUtils.xxx调用
- *          ** 未“****无需init****”标注的方法则需要到App里初始化后再使用
+ *      ** 该工具类综合了多人代码，有一些需要在App里初始化，有一些则不用
+ *      ** 用“**无需init**”标注的方法可直接通过AppUtils.xxx调用
+ *      ** 未使用“**无需init**”标注的方法则需要到App里初始化后再使用
  * </pre>
  */
 public final class AppUtils {
