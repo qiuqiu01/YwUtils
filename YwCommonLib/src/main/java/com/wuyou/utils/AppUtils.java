@@ -51,7 +51,7 @@ public final class AppUtils {
     }
 
     /**
-     * 获取应用程序名
+     * 获取应用名称
      * **************************************无需init***********************************************
      * @param context   context
      * @param packageName 包名
@@ -125,11 +125,12 @@ public final class AppUtils {
     }
 
     /**
+     * 获取应用apk文件
      * 获取 Full path to the base APK for this application.
      * **************************************无需init***********************************************
      * @param context   context
      * @param packageName 包名
-     * @return Full path to the base APK for this application.
+     * @return 应用apk文件
      */
     public static String getAppApk(Context context, String packageName) {
         String sourceDir = null;
@@ -143,6 +144,7 @@ public final class AppUtils {
     }
 
     /**
+     * 获取应用版本名称
      * 获取 The version name of this package（App版本名）
      * **************************************无需init***********************************************
      * @param context   context
@@ -161,6 +163,7 @@ public final class AppUtils {
     }
 
     /**
+     * 获取应用版本号
      * 获取 App版本号---可参见module下build.gradle里的versionCode
      * **************************************无需init***********************************************
      * @param context   context
@@ -179,7 +182,7 @@ public final class AppUtils {
     }
 
     /**
-     * 获取应用程序安装渠道：比如谷歌应用市场/华为应用市场等
+     * 获取应用程序安装市场：比如谷歌应用市场/华为应用市场等
      * **************************************无需init***********************************************
      * @param context   context
      * @param packageName The name of the package to query
@@ -191,21 +194,21 @@ public final class AppUtils {
     }
 
     /**
-     * 获取当前App包名
+     * 获取应用包名
      * **************************************无需init***********************************************
      * @param context   context
-     * @return 获取当前App包名
+     * @return 当前App包名
      */
     public static String getAppPackageName(Context context) {
         return context.getPackageName();
     }
 
     /**
-     * 判断权限
+     * 是否有权限
      * **************************************无需init***********************************************
      * @param context   context
      * @param permission   权限
-     * @return 获取当前App包名
+     * @return 是否有权限
      */
     public static boolean hasPermission(Context context, String permission) {
         if (context != null && !TextUtils.isEmpty(permission)) {
@@ -349,13 +352,13 @@ public final class AppUtils {
     }
 
     /**
-     * 获取cpu核心信息的数量
+     * 获取Cpu内核数
      * **************************************无需init***********************************************
      * /sys/devices/system/cpu：
      *      * 该文件夹包含多个文件夹，以cpu0...等文件夹名称存在
      *      * /cpu0：包含cpu的一些重要信息
      * 参考：https://blog.csdn.net/su749520/article/details/79024439
-     * @return cpu核心信息的数量
+     * @return Cpu内核数
      */
     public static int getNumCores() {
         try {
@@ -376,12 +379,12 @@ public final class AppUtils {
     }
 
     /**
-     * 清理进程
+     * 结束进程
      * **************************************无需init***********************************************
      * @param context   context
      * @param pid   进程的pid
      * @param processName 进程名（一般是包名）
-     * @return 清理进程
+     * @return 结束进程
      */
     public static void killProcesses(Context context, int pid, String processName) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
@@ -486,7 +489,7 @@ public final class AppUtils {
      *  ***注意：这里执行了su指令，一般需要强行root才能执行该命令，现在手机基本不需要root，基本***
      *  ***用不到这段代码，留作参考吧***
      * @param context  context
-     * @return
+     * @return 获得root权限是否成功
      */
     public static boolean getRootPermission(Context context) {
         String packageCodePath = context.getPackageCodePath();

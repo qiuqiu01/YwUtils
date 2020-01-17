@@ -39,6 +39,10 @@ public final class FileUtils {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
+    /**
+     * 关闭IO流
+     * @param closeables
+     */
     public static void closeIO(Closeable... closeables) {
         if (null == closeables || closeables.length <= 0) {
             return;
@@ -55,14 +59,30 @@ public final class FileUtils {
         }
     }
 
+    /**
+     * 删除文件
+     * @param filename
+     * @return
+     */
     public static boolean deleteFile(String filename) {
         return new File(filename).delete();
     }
 
+    /**
+     * 文件是否存在
+     * @param filePath
+     * @return
+     */
     public static boolean isFileExist(String filePath) {
         return new File(filePath).exists();
     }
 
+    /**
+     * 将字符串写入到文件
+     * @param filename
+     * @param content
+     * @return
+     */
     public static boolean writeFile(String filename, String content) {
         boolean isSuccess = false;
         BufferedWriter bufferedWriter = null;
@@ -78,6 +98,11 @@ public final class FileUtils {
         return isSuccess;
     }
 
+    /**
+     * 从文件中读取字符串
+     * @param filename
+     * @return
+     */
     public static String readFile(String filename) {
         File file = new File(filename);
         BufferedReader bufferedReader = null;
@@ -95,12 +120,24 @@ public final class FileUtils {
         return str;
     }
 
+    /**
+     * 快速复制
+     * @param is
+     * @param os
+     * @throws IOException
+     */
     public static void copyFileFast(FileInputStream is, FileOutputStream os) throws IOException {
         FileChannel in = is.getChannel();
         FileChannel out = os.getChannel();
         in.transferTo(0, in.size(), out);
     }
 
+    /**
+     * 分享文件
+     * @param context
+     * @param title
+     * @param filePath
+     */
     public static void shareFile(Context context, String title, String filePath) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         Uri uri = Uri.parse("file://" + filePath);
@@ -109,6 +146,11 @@ public final class FileUtils {
         context.startActivity(Intent.createChooser(intent, title));
     }
 
+    /**
+     * zip压缩
+     * @param is
+     * @param os
+     */
     public static void zip(InputStream is, OutputStream os) {
         GZIPOutputStream gzip = null;
         try {
@@ -127,6 +169,11 @@ public final class FileUtils {
         }
     }
 
+    /**
+     * zip解压
+     * @param is
+     * @param os
+     */
     public static void unzip(InputStream is, OutputStream os) {
         GZIPInputStream gzip = null;
         try {
@@ -144,10 +191,21 @@ public final class FileUtils {
         }
     }
 
+    /**
+     * 格式化文件大小
+     * @param context
+     * @param size
+     * @return
+     */
     public static String formatFileSize(Context context, long size) {
         return Formatter.formatFileSize(context, size);
     }
 
+    /**
+     * 将输入流写入到文件
+     * @param is
+     * @param fileName
+     */
     public static void Stream2File(InputStream is, String fileName) {
         byte[] b = new byte[1024];
         int len;
@@ -166,10 +224,21 @@ public final class FileUtils {
         }
     }
 
+    /**
+     * 创建文件夹
+     * @param filePath
+     * @return
+     */
     public static boolean createFolder(String filePath) {
         return createFolder(filePath, false);
     }
 
+    /**
+     * 创建文件夹(支持覆盖已存在的同名文件夹)
+     * @param filePath
+     * @param recreate
+     * @return
+     */
     public static boolean createFolder(String filePath, boolean recreate) {
         String folderName = getFolderName(filePath);
         if (folderName == null || folderName.length() == 0 || folderName.trim().length() == 0) {
@@ -188,6 +257,11 @@ public final class FileUtils {
         }
     }
 
+    /**
+     * 获取文件夹名称
+     * @param filePath
+     * @return
+     */
     public static String getFolderName(String filePath) {
         if (filePath == null || filePath.length() == 0 || filePath.trim().length() == 0) {
             return filePath;
@@ -196,6 +270,11 @@ public final class FileUtils {
         return (filePos == -1) ? "" : filePath.substring(0, filePos);
     }
 
+    /**
+     * 删除目录下的文件
+     * @param folder
+     * @return
+     */
     public static boolean deleteFiles(String folder) {
         if (folder == null || folder.length() == 0 || folder.trim().length() == 0) {
             return true;
@@ -220,6 +299,11 @@ public final class FileUtils {
         return file.delete();
     }
 
+    /**
+     * 打开图片
+     * @param mContext
+     * @param imagePath
+     */
     public static void openImage(Context mContext, String imagePath) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
@@ -229,6 +313,11 @@ public final class FileUtils {
         mContext.startActivity(intent);
     }
 
+    /**
+     * 打开视频
+     * @param mContext
+     * @param videoPath
+     */
     public static void openVideo(Context mContext, String videoPath) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -239,6 +328,11 @@ public final class FileUtils {
         mContext.startActivity(intent);
     }
 
+    /**
+     * 打开URL
+     * @param mContext
+     * @param url
+     */
     public static void openURL(Context mContext, String url) {
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);

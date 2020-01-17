@@ -38,7 +38,7 @@ public final class BitmapUtils {
     }
 
     /**
-     * 更改图片尺寸
+     * 修改Bitmap图片尺寸
      * @param bitmap
      * @param sx
      * @param sy
@@ -48,12 +48,13 @@ public final class BitmapUtils {
         Matrix matrix = new Matrix();
         matrix.postScale(sx, sy); // 长和宽放大缩小的比例
         Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+
         return resizeBmp;
     }
 
     /**
-     * 将Bitmap图片转换成圆形
-     * 切出来的圆形较大
+     * 将Bitmap对象转换成圆形Bitmap（切出来的圆形较大）
+     *
      * @param bitmap
      * @return
      */
@@ -105,12 +106,12 @@ public final class BitmapUtils {
     }
 
     /**
-     * 图片转换成圆形
-     * 切出来的圆形很小
+     * 将Bitmap对象转换成圆形Bitmap（切出来的圆形很小）
+     *
      * @param bitmap
      * @return
      */
-    public static Bitmap makeRoundCorner(Bitmap bitmap) {
+    public static Bitmap toRoundCorner(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
 
@@ -145,13 +146,14 @@ public final class BitmapUtils {
         canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
+
         return output;
     }
 
     /**
      * 裁剪图片
      * @param bitmap
-     * @param size
+     * @param size 裁剪尺寸
      * @return
      */
     public static Bitmap cutBitmap(Bitmap bitmap, int size) {
@@ -162,11 +164,11 @@ public final class BitmapUtils {
     }
 
     /**
-     * 加载图片
+     * 解析文件为bitmap
      * @param pathName  图片路径
      * @param width
      * @param height
-     * @return
+     * @return Bitmap对象
      */
     public static Bitmap decodeFile(String pathName, int width, int height) {
         Bitmap bitmap = null;
@@ -247,7 +249,8 @@ public final class BitmapUtils {
     }
 
     public static Bitmap createCircularClip(Bitmap input, int width, int height) {
-        if (input == null) return null;
+        if (input == null)
+            return null;
 
         final int inWidth = input.getWidth();
         final int inHeight = input.getHeight();
@@ -262,6 +265,7 @@ public final class BitmapUtils {
         m.setRectToRect(srcRect, dstRect, Matrix.ScaleToFit.CENTER);
         canvas.setMatrix(m);
         canvas.drawCircle(inWidth / 2, inHeight / 2, inWidth / 2, paint);
+
         return output;
     }
 }

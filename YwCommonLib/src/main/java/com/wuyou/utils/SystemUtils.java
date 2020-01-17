@@ -48,6 +48,11 @@ public final class SystemUtils {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
+    /**
+     * 调用系统发送短信
+     * @param cxt
+     * @param smsBody
+     */
     public static void sendSMS(Context cxt, String smsBody) {
         Uri smsToUri = Uri.parse("smsto:");
         Intent intent = new Intent(Intent.ACTION_SENDTO, smsToUri);
@@ -55,12 +60,22 @@ public final class SystemUtils {
         cxt.startActivity(intent);
     }
 
+    /**
+     * 跳转到拨号
+     * @param activity
+     * @param phoneNumber
+     */
     public static void forwardToDial(Activity activity, String phoneNumber) {
         if (activity != null && !TextUtils.isEmpty(phoneNumber)) {
             activity.startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber)));
         }
     }
 
+    /**
+     * 直接呼叫号码
+     * @param activity
+     * @param phoneNumber
+     */
     public static void callPhone(Activity activity, String phoneNumber) {
         if (activity != null && !TextUtils.isEmpty(phoneNumber)) {
             if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) !=
@@ -71,16 +86,29 @@ public final class SystemUtils {
         }
     }
 
+    /**
+     * 发邮件
+     * @param mContext
+     * @param mailID
+     */
     public static void sendMail(Context mContext, String mailID) {
         Uri uri = Uri.parse("mailto:" + mailID);
         mContext.startActivity(new Intent(Intent.ACTION_SENDTO, uri));
     }
 
+    /**
+     * 隐藏系统键盘
+     * @param aty
+     */
     public static void hideKeyBoard(Activity aty) {
         ((InputMethodManager) aty.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(aty.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-
+    /**
+     * 判断当前应用程序是否后台运行
+     * @param context
+     * @return
+     */
     public static boolean isBackground(Context context) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
@@ -92,12 +120,21 @@ public final class SystemUtils {
         return false;
     }
 
+    /**
+     * 判断手机是否处理睡眠
+     * @param context
+     * @return
+     */
     public static boolean isSleeping(Context context) {
         KeyguardManager kgMgr = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         return kgMgr.inKeyguardRestrictedInputMode();
     }
 
-
+    /**
+     * 安装apk
+     * @param context
+     * @param apkfile
+     */
     public static void installApk(Context context, File apkfile) {
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
@@ -111,6 +148,10 @@ public final class SystemUtils {
 
     static final String suSearchPaths[] = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
 
+    /**
+     * 是否root
+     * @return
+     */
     public static boolean isRooted() {
         File file;
         boolean flag1 = false;
@@ -124,6 +165,10 @@ public final class SystemUtils {
         return flag1;
     }
 
+    /**
+     * 当前设备是否是模拟器
+     * @return
+     */
     public static boolean isRunningOnEmulator() {
         return Build.BRAND.contains("generic")
                 || Build.DEVICE.contains("generic")
@@ -135,6 +180,11 @@ public final class SystemUtils {
                 || Build.HARDWARE.contains("vbox86");
     }
 
+    /**
+     * 获取当前应用程序的版本名称
+     * @param context
+     * @return
+     */
     public static String getAppVersionName(Context context) {
         String version = "0";
         try {
@@ -145,7 +195,11 @@ public final class SystemUtils {
         return version;
     }
 
-
+    /**
+     * 获取当前应用程序的版本号
+     * @param context
+     * @return
+     */
     public static int getAppVersionCode(Context context) {
         int version = 0;
         try {
@@ -156,7 +210,10 @@ public final class SystemUtils {
         return version;
     }
 
-
+    /**
+     * 返回Home
+     * @param context
+     */
     public static void goHome(Context context) {
         Intent mHomeIntent = new Intent(Intent.ACTION_MAIN);
         mHomeIntent.addCategory(Intent.CATEGORY_HOME);
@@ -164,7 +221,12 @@ public final class SystemUtils {
         context.startActivity(mHomeIntent);
     }
 
-
+    /**
+     * 获取应用签名
+     * @param context
+     * @param pkgName
+     * @return
+     */
     public static String getSign(Context context, String pkgName) {
         try {
             PackageInfo pis = context.getPackageManager().getPackageInfo(pkgName, PackageManager.GET_SIGNATURES);
@@ -174,7 +236,11 @@ public final class SystemUtils {
         }
     }
 
-
+    /**
+     * 32位签名
+     * @param paramArrayOfByte
+     * @return
+     */
     public static String hexdigest(byte[] paramArrayOfByte) {
         final char[] hexDigits = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102};
         try {
@@ -196,7 +262,11 @@ public final class SystemUtils {
         return "";
     }
 
-
+    /**
+     * 获取设备可用空间
+     * @param cxt
+     * @return
+     */
     public static int getDeviceUsableMemory(Context cxt) {
         ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
         MemoryInfo mi = new ActivityManager.MemoryInfo();
@@ -205,7 +275,11 @@ public final class SystemUtils {
         return (int) (mi.availMem / (1024 * 1024));
     }
 
-
+    /**
+     * 清理后台进程和服务
+     * @param cxt
+     * @return
+     */
     public static int gc(Context cxt) {
         //long i = getDeviceUsableMemory(cxt);
         int count = 0;
@@ -243,7 +317,13 @@ public final class SystemUtils {
         return count;
     }
 
-
+    /**
+     * 创建桌面快捷方式
+     * @param cxt
+     * @param shortCutName
+     * @param icon
+     * @param cls
+     */
     public static void createDeskShortCut(Context cxt, String shortCutName, int icon, Class<?> cls) {
         Intent shortcutIntent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         shortcutIntent.putExtra("duplicate", false);
@@ -257,6 +337,13 @@ public final class SystemUtils {
         cxt.sendBroadcast(shortcutIntent);
     }
 
+    /**
+     * 创建快捷方式
+     * @param ctx
+     * @param shortCutName
+     * @param iconId
+     * @param presentIntent
+     */
     public static void createShortcut(Context ctx, String shortCutName, int iconId, Intent presentIntent) {
         Intent shortcutIntent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         shortcutIntent.putExtra("duplicate", false);
@@ -266,6 +353,12 @@ public final class SystemUtils {
         ctx.sendBroadcast(shortcutIntent);
     }
 
+    /**
+     * 分享文本
+     * @param ctx
+     * @param title
+     * @param text
+     */
     public static void shareText(Context ctx, String title, String text) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
@@ -278,12 +371,22 @@ public final class SystemUtils {
         }*/
     }
 
+    /**
+     * 分享文件(此方法是调用FileUtils.shareFile中的方式)
+     * @param ctx
+     * @param title
+     * @param filePath
+     */
     public static void shareFile(Context ctx, String title, String filePath) {
         // FileUtils报错，先注释掉，用到时再补上功能
 //        FileUtils.shareFile(ctx, title, filePath);
     }
 
-
+    /**
+     * 获取可接受分享的应用
+     * @param ctx
+     * @return
+     */
     @SuppressLint("WrongConstant")
     public static List<ResolveInfo> getShareTargets(Context ctx) {
         Intent intent = new Intent(Intent.ACTION_SEND, null);
@@ -293,10 +396,19 @@ public final class SystemUtils {
         return pm.queryIntentActivities(intent, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
     }
 
+    /**
+     * 获取当前系统的语言
+     * @return
+     */
     public static String getCurrentLanguage() {
         return Locale.getDefault().getLanguage();
     }
 
+    /**
+     * 获取当前系统的语言
+     * @param ctx
+     * @return
+     */
     public static String getLanguage(Context ctx) {
         if (ctx != null) {
             return ctx.getResources().getConfiguration().locale.getLanguage();
@@ -305,6 +417,7 @@ public final class SystemUtils {
     }
 
     /**
+     * GPS是否打开
      * <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
      */
     public static boolean isGpsEnabled(Context context) {
@@ -312,6 +425,11 @@ public final class SystemUtils {
         return lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
 
+    /**
+     * 显示软键盘
+     * @param context
+     * @param editText
+     */
     public static void showSoftInputMethod(Context context, EditText editText) {
         if (context != null && editText != null) {
             editText.requestFocus();
@@ -320,7 +438,11 @@ public final class SystemUtils {
         }
     }
 
-
+    /**
+     * 关闭软键盘
+     * @param context
+     * @param editText
+     */
     public static void closeSoftInputMethod(Context context, EditText editText) {
         if (context != null && editText != null) {
             InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -330,13 +452,20 @@ public final class SystemUtils {
         }
     }
 
+    /**
+     * 显示软键盘
+     * @param context
+     */
     public static void showSoftInput(Context context) {
         InputMethodManager inputMethodManager = (InputMethodManager) context
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-
+    /**
+     * 关闭软键盘
+     * @param context
+     */
     public static void closeSoftInput(Context context) {
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null && ((Activity) context).getCurrentFocus() != null) {

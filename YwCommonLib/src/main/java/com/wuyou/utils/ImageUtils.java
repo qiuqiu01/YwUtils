@@ -42,7 +42,7 @@ public final class ImageUtils {
     }
 
     /**
-     * 计算图片采样率
+     * 计算图片的压缩比率（采样率）
      * @param options
      * @param reqWidth
      * @param reqHeight
@@ -63,6 +63,11 @@ public final class ImageUtils {
         return inSampleSize;
     }
 
+    /**
+     * 获取图片的角度
+     * @param imagePath
+     * @return
+     */
     public static int getPictureDegree(String imagePath) {
         int i = 0;
         try {
@@ -89,6 +94,12 @@ public final class ImageUtils {
         return i;
     }
 
+    /**
+     * 旋转图片
+     * @param paramInt
+     * @param paramBitmap
+     * @return
+     */
     public static Bitmap rotaingImageView(int paramInt, Bitmap paramBitmap) {
         Matrix localMatrix = new Matrix();
         localMatrix.postRotate(paramInt);
@@ -97,6 +108,13 @@ public final class ImageUtils {
                 paramBitmap.getHeight(), localMatrix, true);
     }
 
+    /**
+     * 加载图片并压缩
+     * @param imagePath
+     * @param outWidth
+     * @param outHeight
+     * @return
+     */
     public static Bitmap decodeScaleImage(String imagePath, int outWidth, int outHeight) {
         BitmapFactory.Options localOptions = new BitmapFactory.Options();
         localOptions.inJustDecodeBounds = true;
@@ -117,6 +135,12 @@ public final class ImageUtils {
         return localBitmap1;
     }
 
+    /**
+     * 获取圆角图片
+     * @param bitmap
+     * @param roundPx
+     * @return
+     */
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float roundPx) {
         if (bitmap == null) {
             return null;
@@ -137,6 +161,12 @@ public final class ImageUtils {
         return output;
     }
 
+    /**
+     * 解析URL流为图片
+     * @param mContext
+     * @param uri
+     * @return
+     */
     public static Bitmap decodeUriAsBitmap(Context mContext, Uri uri) {
         Bitmap bitmap;
         try {
@@ -148,6 +178,12 @@ public final class ImageUtils {
         return bitmap;
     }
 
+    /**
+     * bitmap存为文件
+     * @param bitmap
+     * @param imageFile
+     * @return
+     */
     public static boolean bitmap2File(Bitmap bitmap, File imageFile) {
         OutputStream os;
         try {
@@ -162,6 +198,11 @@ public final class ImageUtils {
         }
     }
 
+    /**
+     * 质量压缩
+     * @param image
+     * @return
+     */
     public static Bitmap compressImage(Bitmap image) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
@@ -178,6 +219,13 @@ public final class ImageUtils {
         return BitmapFactory.decodeStream(isBm, null, null);
     }
 
+    /**
+     * 固定大小压缩
+     * @param bitMap
+     * @param outWidth
+     * @param outHeight
+     * @return
+     */
     public static Bitmap compressFixBitmap(Bitmap bitMap, int outWidth, int outHeight) {
         int width = bitMap.getWidth();
         int height = bitMap.getHeight();

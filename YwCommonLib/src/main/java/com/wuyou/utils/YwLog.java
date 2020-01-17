@@ -33,7 +33,7 @@ import javax.xml.transform.stream.StreamSource;
  * </pre>
  */
 public final class YwLog {
-    public static String TAG = "QiuQiu";
+    public static String TAG = "YwLog";
     public static boolean LOG_DEBUG = true;
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
     private static final int VERBOSE = 2;
@@ -194,6 +194,12 @@ public final class YwLog {
         }
     }
 
+    /**
+     * 输出json
+     * @param tag
+     * @param json
+     * @param headString
+     */
     private static void printJson(String tag, String json, String headString) {
         if (TextUtils.isEmpty(json)) {
             d("Empty/Null json content");
@@ -227,6 +233,12 @@ public final class YwLog {
         printLine(tag, false);
     }
 
+    /**
+     * 输出xml
+     * @param tag
+     * @param xml
+     * @param headString
+     */
     private static void printXml(String tag, String xml, String headString) {
         if (TextUtils.isEmpty(tag)) {
             tag = TAG;

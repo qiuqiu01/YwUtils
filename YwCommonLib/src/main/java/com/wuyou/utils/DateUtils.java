@@ -30,18 +30,39 @@ public final class DateUtils {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
+    /**
+     * 格式化日期时间
+     * @param date
+     * @return
+     */
     public static String formatDataTime(long date) {
         return DATE_FORMAT_DATETIME.format(new Date(date));
     }
 
+    /**
+     * 格式化日期
+     * @param date
+     * @return
+     */
     public static String formatDate(long date) {
         return DATE_FORMAT_DATE.format(new Date(date));
     }
 
+    /**
+     * 格式化时间
+     * @param date
+     * @return
+     */
     public static String formatTime(long date) {
         return DATE_FORMAT_TIME.format(new Date(date));
     }
 
+    /**
+     * 自定义格式的格式化日期时间
+     * @param beginDate
+     * @param format
+     * @return
+     */
     public static String formatDateCustom(String beginDate, String format) {
         return new SimpleDateFormat(format).format(new Date(Long.parseLong(beginDate)));
     }
@@ -50,6 +71,12 @@ public final class DateUtils {
         return new SimpleDateFormat(format).format(beginDate);
     }
 
+    /**
+     * 将时间字符串转换成Date
+     * @param s
+     * @param style
+     * @return
+     */
     public static Date string2Date(String s, String style) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
         simpleDateFormat.applyPattern(style);
@@ -66,7 +93,7 @@ public final class DateUtils {
     }
 
     /**
-     * 获取当前时间，格式：12:36:41
+     * 获取当前系统时间，格式：12:36:41
      * @return
      */
     public static String getTime() {
@@ -76,10 +103,22 @@ public final class DateUtils {
         return cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
     }
 
+    /**
+     * 计算两个时间差
+     * @param dateStart
+     * @param dateEnd
+     * @return
+     */
     public static long subtractDate(Date dateStart, Date dateEnd) {
         return dateEnd.getTime() - dateStart.getTime();
     }
 
+    /**
+     * 得到几天后的时间
+     * @param d
+     * @param day
+     * @return
+     */
     public static Date getDateAfter(Date d, int day) {
         Calendar now = Calendar.getInstance();
         now.setTime(d);
@@ -135,7 +174,7 @@ public final class DateUtils {
     }
 
     /**
-     * 获取当月第几周
+     * 获取当前时间为本月的第几周
      * @return
      */
     public static int getWeekOfMonth() {
@@ -146,7 +185,7 @@ public final class DateUtils {
     }
 
     /**
-     * 获取当年第几周
+     * 获取当前时间为当前时间为当年第几周
      * @return
      */
     public static int getWeekOfYear() {
@@ -157,7 +196,7 @@ public final class DateUtils {
     }
 
     /**
-     * 获取星期
+     * 获取当前时间为本周的第几天
      * @return
      */
     public static int getDayOfWeek() {

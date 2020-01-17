@@ -84,7 +84,10 @@ public final class ViewUtils {
         return Bitmap.createBitmap(bmp, 0, 0, bmpWidth, bmpHeight, matrix, true);
     }
 
-
+    /**
+     * 给TextView设置下划线
+     * @param textView
+     */
     public static void setTVUnderLine(TextView textView) {
         textView.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
         textView.getPaint().setAntiAlias(true);
@@ -136,6 +139,11 @@ public final class ViewUtils {
         }
     }
 
+    /**
+     * 截图
+     * @param v
+     * @return
+     */
     public static Bitmap captureView(View v) {
         v.setDrawingCacheEnabled(true);
         v.buildDrawingCache();
@@ -143,7 +151,11 @@ public final class ViewUtils {
         return v.getDrawingCache();
     }
 
-
+    /**
+     * 截图
+     * @param v
+     * @return
+     */
     public static Bitmap createViewBitmap(View v) {
         Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
@@ -152,7 +164,11 @@ public final class ViewUtils {
         return bitmap;
     }
 
-
+    /**
+     * 截图
+     * @param view
+     * @return
+     */
     public static Bitmap convertViewToBitmap(View view) {
         view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
         view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
@@ -161,7 +177,11 @@ public final class ViewUtils {
         return view.getDrawingCache();
     }
 
-
+    /**
+     * 获取Activity的截图
+     * @param activity
+     * @return
+     */
     public static Bitmap getActivityBitmap(Activity activity) {
         View view = activity.getWindow().getDecorView().findViewById(android.R.id.content);
         view.setDrawingCacheEnabled(true);
@@ -169,7 +189,11 @@ public final class ViewUtils {
         return view.getDrawingCache();
     }
 
-
+    /**
+     * 获取状态栏高度
+     * @param context
+     * @return
+     */
     public static int getStatusBarHeight(Context context) {
         int result = 0;
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -179,7 +203,11 @@ public final class ViewUtils {
         return result;
     }
 
-
+    /**
+     * 获取工具栏高度
+     * @param context
+     * @return
+     */
     public static int getToolbarHeight(Context context) {
         final TypedArray styledAttributes =
                 context.getTheme().obtainStyledAttributes(new int[]{R.attr.actionBarSize});
@@ -188,6 +216,11 @@ public final class ViewUtils {
         return toolbarHeight;
     }
 
+    /**
+     * 获取导航栏高度
+     * @param activity
+     * @return
+     */
     public static int getNavigationBarHeight(Activity activity) {
         Resources resources = activity.getResources();
         int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
@@ -197,6 +230,10 @@ public final class ViewUtils {
         return 0;
     }
 
+    /**
+     * 测量view
+     * @param view
+     */
     public static void measureView(View view) {
         ViewGroup.LayoutParams p = view.getLayoutParams();
         if (p == null) {
@@ -214,15 +251,23 @@ public final class ViewUtils {
         view.measure(childWidthSpec, childHeightSpec);
     }
 
+    /**
+     * 获取view的宽度
+     * @param view
+     * @return
+     */
     public static int getViewWidth(View view) {
         measureView(view);
-
         return view.getMeasuredWidth();
     }
 
+    /**
+     * 获取view的高度
+     * @param view
+     * @return
+     */
     public static int getViewHeight(View view) {
         measureView(view);
-
         return view.getMeasuredHeight();
     }
 }

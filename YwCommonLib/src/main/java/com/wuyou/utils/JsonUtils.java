@@ -30,16 +30,33 @@ public final class JsonUtils {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
+    /**
+     * 对象转json
+     * @param obj
+     * @return
+     */
     public static String toJson(Object obj) {
         Gson gson = new Gson();
         return gson.toJson(obj);
     }
 
+    /**
+     * json转对象
+     * @param str
+     * @param type
+     * @param <T>
+     * @return
+     */
     public static <T> T fromJson(String str, Class<T> type) {
         Gson gson = new Gson();
         return gson.fromJson(str, type);
     }
 
+    /**
+     * Map转为JSONObject
+     * @param data
+     * @return
+     */
     public static JSONObject map2Json(Map<?, ?> data) {
         JSONObject object = new JSONObject();
 
@@ -58,6 +75,11 @@ public final class JsonUtils {
         return object;
     }
 
+    /**
+     * 集合转换为JSONArray
+     * @param data
+     * @return
+     */
     public static JSONArray collection2Json(Collection<?> data) {
         JSONArray jsonArray = new JSONArray();
         if (data != null) {
@@ -68,6 +90,12 @@ public final class JsonUtils {
         return jsonArray;
     }
 
+    /**
+     * Object对象转换为JSONArray
+     * @param data
+     * @return
+     * @throws JSONException
+     */
     public static JSONArray object2Json(Object data) throws JSONException {
         if (!data.getClass().isArray()) {
             throw new JSONException("Not a primitive data: " + data.getClass());
@@ -81,6 +109,11 @@ public final class JsonUtils {
         return jsonArray;
     }
 
+    /**
+     *
+     * @param o
+     * @return
+     */
     private static Object wrap(Object o) {
         if (o == null) {
             return null;
@@ -110,6 +143,11 @@ public final class JsonUtils {
         return null;
     }
 
+    /**
+     * json字符串生成JSONObject对象
+     * @param json
+     * @return
+     */
     public static JSONObject string2JSONObject(String json) {
         JSONObject jsonObject = null;
         try {

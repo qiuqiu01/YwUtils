@@ -7,25 +7,42 @@
 package com.wuyou.utils;
 
 /**
+ * 坐标转换工具类
  * <pre>
  *     author: YanWen
  *     time  : 2020/01/09
- *     desc  : 坐标转换工具类
- * * 提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换
- * * https://github.com/wandergis/coordtransform
+ *     desc  : 提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换
+ * </pre>
+ * <pre>
+ *     参考地址：https://github.com/wandergis/coordtransform
+ *      地球坐标 (WGS84)
+ *          国际标准，从 GPS 设备中取出的数据的坐标系
+ *          国际地图提供商使用的坐标系
+ *      火星坐标 (GCJ-02)也叫国测局坐标系
+ *          中国标准，从国行移动设备中定位获取的坐标数据使用这个坐标系
+ *          国家规定： 国内出版的各种地图系统（包括电子形式），必须至少采用GCJ-02对地理位置进行首次加密。
+ *      百度坐标 (BD-09)
+ *          百度标准，百度 SDK，百度地图，Geocoding 使用
+ *          (本来就乱了，百度又在火星坐标上来个二次加密)
  * </pre>
  */
-public final class CoordinateTransformUtil {
+public final class CoordinateTransformUtils {
 
     static double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
     static double pi = 3.1415926535897932384626;
     static double a = 6378245.0;
     static double ee = 0.00669342162296594323;
 
-    private CoordinateTransformUtil() {
+    private CoordinateTransformUtils() {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
+    /**
+     * 百度坐标系(BD-09)转WGS坐标(百度坐标纬度,百度坐标经度),WGS84坐标数组
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static double[] bd09towgs84(double lng, double lat) {
         double[] gcj = bd09togcj02(lng, lat);
         double[] wgs84 = gcj02towgs84(gcj[0], gcj[1]);
@@ -33,6 +50,12 @@ public final class CoordinateTransformUtil {
         return wgs84;
     }
 
+    /**
+     * WGS坐标转百度坐标系(BD-09)(WGS84坐标系的经度,WGS84坐标系的纬度),百度坐标数组
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static double[] wgs84tobd09(double lng, double lat) {
         double[] gcj = wgs84togcj02(lng, lat);
         double[] bd09 = gcj02tobd09(gcj[0], gcj[1]);
@@ -40,6 +63,12 @@ public final class CoordinateTransformUtil {
         return bd09;
     }
 
+    /**
+     * 火星坐标系(GCJ-02)转百度坐标系(BD-09)(火星坐标经度,火星坐标纬度),百度坐标数组
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static double[] gcj02tobd09(double lng, double lat) {
         double z = Math.sqrt(lng * lng + lat * lat) + 0.00002 * Math.sin(lat * x_pi);
         double theta = Math.atan2(lat, lng) + 0.000003 * Math.cos(lng * x_pi);
@@ -49,6 +78,12 @@ public final class CoordinateTransformUtil {
         return new double[]{bd_lng, bd_lat};
     }
 
+    /**
+     * 百度坐标系(BD-09)转火星坐标系(GCJ-02)(百度坐标纬度,百度坐标经度),火星坐标数组
+     * @param bd_lon
+     * @param bd_lat
+     * @return
+     */
     public static double[] bd09togcj02(double bd_lon, double bd_lat) {
         double x = bd_lon - 0.0065;
         double y = bd_lat - 0.006;
@@ -60,6 +95,12 @@ public final class CoordinateTransformUtil {
         return new double[]{gg_lng, gg_lat};
     }
 
+    /**
+     * WGS84转GCJ02(火星坐标系)(WGS84坐标系的经度,WGS84坐标系的纬度),火星坐标数组
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static double[] wgs84togcj02(double lng, double lat) {
         if (out_of_china(lng, lat)) {
             return new double[]{lng, lat};
@@ -78,6 +119,12 @@ public final class CoordinateTransformUtil {
         return new double[]{mglng, mglat};
     }
 
+    /**
+     * GCJ02(火星坐标系)转GPS84(火星坐标系的经度,火星坐标系纬度),WGS84坐标数组
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static double[] gcj02towgs84(double lng, double lat) {
         if (out_of_china(lng, lat)) {
             return new double[]{lng, lat};
@@ -96,6 +143,12 @@ public final class CoordinateTransformUtil {
         return new double[]{lng * 2 - mglng, lat * 2 - mglat};
     }
 
+    /**
+     * 纬度转换
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static double transformlat(double lng, double lat) {
         double ret = -100.0 + 2.0 * lng + 3.0 * lat + 0.2 * lat * lat + 0.1 * lng * lat + 0.2 * Math.sqrt(Math.abs(lng));
         ret += (20.0 * Math.sin(6.0 * lng * pi) + 20.0 * Math.sin(2.0 * lng * pi)) * 2.0 / 3.0;
@@ -105,6 +158,12 @@ public final class CoordinateTransformUtil {
         return ret;
     }
 
+    /**
+     * 经度转换
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static double transformlng(double lng, double lat) {
         double ret = 300.0 + lng + 2.0 * lat + 0.1 * lng * lng + 0.1 * lng * lat + 0.1 * Math.sqrt(Math.abs(lng));
         ret += (20.0 * Math.sin(6.0 * lng * pi) + 20.0 * Math.sin(2.0 * lng * pi)) * 2.0 / 3.0;
@@ -114,6 +173,12 @@ public final class CoordinateTransformUtil {
         return ret;
     }
 
+    /**
+     * 判断是否在国内，不在国内不做偏移
+     * @param lng
+     * @param lat
+     * @return
+     */
     public static boolean out_of_china(double lng, double lat) {
         if (lng < 72.004 || lng > 137.8347) {
             return true;

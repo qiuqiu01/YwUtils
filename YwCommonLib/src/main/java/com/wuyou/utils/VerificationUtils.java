@@ -26,96 +26,109 @@ public final class VerificationUtils {
     }
 
     /**
-     * 邮政编码
+     * 判断姓名格式
+     *  1.如果是英文名,可以允许英文名字中出现空格
+     *  2.英文名的空格可以是多个,但是不能连续出现多个
+     *  3.汉字不能出现空格
      */
-    public static boolean isPostcode(String postcode) {
-        String regex = "[1-9]\\d{5}";
-        return Pattern.matches(regex, postcode);
-    }
-
-    /**
-     * 真实姓名
-     */
-    public static boolean isRealName(String value) {
+    public static boolean matchRealName(String value) {
         String regex = "^([\\u4e00-\\u9fa5]+|([a-zA-Z]+\\s?)+)$";
-        return testRegex(regex, value);
+        return matchRegex(regex, value);
     }
 
     /**
      * 手机号
+     * 判断手机号格式  (匹配11数字,并且13-19开头)
      */
-    public static boolean isPhoneNum(String value) {
+    public static boolean matchPhoneNum(String value) {
         String regex = "^(\\+?\\d{2}-?)?(1[0-9])\\d{9}$";
-        return testRegex(regex, value);
+        return matchRegex(regex, value);
     }
 
     /**
      * 账户
+     * 判断账号格式 (4-20位字符)
      */
-    public static boolean isAccount(String value) {
+    public static boolean matchAccount(String value) {
         String regex = "[\\u4e00-\\u9fa5a-zA-Z0-9\\-]{4,20}";
-        return testRegex(regex, value);
+        return matchRegex(regex, value);
     }
 
     /**
      * 密码1
+     * 判断密码格式 (6-12位字母或数字)
      */
-    public static boolean isPassword(String value) {
+    public static boolean matchPassword(String value) {
         String regex = "^[a-zA-Z0-9]{6,12}$";
-        return testRegex(regex, value);
+        return matchRegex(regex, value);
     }
 
     /**
      * 密码2
+     * 判断密码格式 (6-12位字母或数字,必须同时包含字母和数字)
      */
-    public static boolean isPassword2(String value) {
+    public static boolean matchPassword2(String value) {
         String regex = "(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}";
-        return testRegex(regex, value);
+        return matchRegex(regex, value);
     }
 
     /**
      * 邮箱
+     * 判断邮箱格式
      */
-    public static boolean isEmail(String value) {
+    public static boolean matchEmail(String value) {
 //      String regex = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)" +
 //                "+[a-zA-Z]{2,}$";
         String regex = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+" +
                 "(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+" +
                 "[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
-        return testRegex(regex, value);
+        return matchRegex(regex, value);
     }
 
     /**
      * IP地址
+     * 判断IP地址
      */
-    public static boolean isIP(String value) {
+    public static boolean matchIP(String value) {
         String regex = "\\b((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\" +
                 "d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\" +
                 "d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\b";
-        return testRegex(regex, value.toLowerCase());
+        return matchRegex(regex, value.toLowerCase());
     }
 
     /**
      * Url
+     * 判断URL (http,https,ftp)
      */
-    public static boolean isUrl(String value) {
+    public static boolean matchUrl(String value) {
         //String regex = "^(([hH][tT]{2}[pP][sS]?)|([fF][tT][pP]))\\:\\/\\/[wW]{3}\\.[\\w-]+\\.\\w{2,4}(\\/.*)?$";
         String regex = "^(([hH][tT]{2}[pP][sS]?)|([fF][tT][pP]))\\:\\/\\/[\\w-]+\\.\\w{2,4}(\\/.*)?$";
-        return testRegex(regex, value.toLowerCase());
+        return matchRegex(regex, value.toLowerCase());
     }
 
     /**
      * 中国车牌号
+     * 判断中国民用车辆号牌
      */
-    public static boolean isVehicleNumber(String value) {
+    public static boolean matchVehicleNumber(String value) {
         String regex = "^[京津晋冀蒙辽吉黑沪苏浙皖闽赣鲁豫鄂湘粤桂琼川贵云藏陕甘青宁新渝]?[A-Z][A-HJ-NP-Z0-9学挂港澳练]{5}$";
-        return testRegex(regex, value.toLowerCase());
+        return matchRegex(regex, value.toLowerCase());
+    }
+
+    /**
+     * 邮政编码
+     * 匹配中国邮政编码
+     */
+    public static boolean matchPostcode(String postcode) {
+        String regex = "[1-9]\\d{5}";
+        return Pattern.matches(regex, postcode);
     }
 
     /**
      * 身份证号
+     * 判断身份证号码格式
      */
-    public static boolean matcherIdentityCard(String value) {
+    public static boolean matchIdentityCard(String value) {
 //        String regex = "^(^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$)|" +
 //                "(^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])((\\d{4})|" +
 //                "\\d{3}[Xx])$)$";
@@ -176,8 +189,9 @@ public final class VerificationUtils {
 
     /**
      * 数字
+     * 是否数值型
      */
-    public static boolean isNumeric(String input) {
+    public static boolean matchNumeric(String input) {
         if (TextUtils.isEmpty(input)) {
             return false;
         }
@@ -254,7 +268,13 @@ public final class VerificationUtils {
         return !allowSigns && foundDigit;
     }
 
-    public static boolean testRegex(String regex, String inputValue) {
+    /**
+     * 是否匹配正则
+     * @param regex
+     * @param inputValue
+     * @return
+     */
+    public static boolean matchRegex(String regex, String inputValue) {
         return Pattern.compile(regex).matcher(inputValue).matches();
     }
 }

@@ -136,7 +136,7 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取设备 IMEI (可通过手机拨号框“*#06#”查询)
+     * 获取设备 IMEI 码(可通过手机拨号框“*#06#”查询)
      *
      * @return IMEI
      */
@@ -146,7 +146,7 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取设备 IMSI
+     * 获取设备 IMSI 码
      *
      * *** 国际移动用户识别码（英语：IMSI，International Mobile Subscriber Identity）***
      * *** 是用于区分蜂窝网络中不同用户的、在所有蜂窝网络中不重复的识别码 ***
@@ -180,7 +180,7 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取设备的ip地址
+     * 获取网络IP地址(优先获取wifi地址)
      * @param ctx
      * @return
      */
@@ -189,12 +189,21 @@ public final class DeviceUtils {
         return wifiManager.isWifiEnabled() ? getWifiIP(wifiManager) : getGPRSIP();
     }
 
+    /**
+     * 获取WIFI连接下的ip地址
+     * @param wifiManager
+     * @return
+     */
     public static String getWifiIP(WifiManager wifiManager) {
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         String ip = intToIp(wifiInfo.getIpAddress());
         return ip != null ? ip : "";
     }
 
+    /**
+     * 获取GPRS连接下的ip地址
+     * @return
+     */
     public static String getGPRSIP() {
         String ip = null;
         try {
@@ -223,7 +232,7 @@ public final class DeviceUtils {
 
 
     /**
-     * 获取硬件序列号
+     * 获取设备序列号
      * @return
      */
     public static String getSerial() {
@@ -242,7 +251,7 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取本机手机号
+     * 获取手机号码(未获取成功)
      * @return
      */
     @SuppressLint({"MissingPermission"})
@@ -251,6 +260,11 @@ public final class DeviceUtils {
         return tm.getLine1Number();
     }
 
+    /**
+     * 获取网络运营商 46000,46002,46007 中国移动,46001 中国联通,46003 中国电信
+     * @param ctx
+     * @return
+     */
     public static String getMNC(Context ctx) {
         String providersName = "";
         TelephonyManager telephonyManager = (TelephonyManager) ctx.getSystemService(Context.TELEPHONY_SERVICE);
@@ -261,13 +275,18 @@ public final class DeviceUtils {
         return providersName;
     }
 
+    /**
+     * 获取网络运营商：中国电信,中国移动,中国联通
+     * @param ctx
+     * @return
+     */
     public static String getCarrier(Context ctx) {
         TelephonyManager tm = (TelephonyManager) ctx.getSystemService(Context.TELEPHONY_SERVICE);
         return tm.getNetworkOperatorName().toLowerCase(Locale.getDefault());
     }
 
     /**
-     * 获取设备型号
+     * 获取硬件型号
      * <p>如 MI2SC</p>
      *
      * @return 设备型号
@@ -283,18 +302,18 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取安卓定制商-(手机品牌信息)
+     * 获取编译厂商-(手机品牌信息)
      *
-     * @return 安卓定制商
+     * @return 编译厂商
      */
     public static String getBuildBrand() {
         return Build.BRAND;
     }
 
     /**
-     * 获取Host值
+     * 获取编译服务器主机
      *
-     * @return Host值
+     * @return 编译服务器主机
      */
     public static String getBuildHost() {
         return Build.HOST;
@@ -310,32 +329,33 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取编译时间
+     * 获取系统编译时间
      *
-     * @return 编译时间
+     * @return 系统编译时间
      */
     public static long getBuildTime() {
         return Build.TIME;
     }
 
     /**
-     * 获取User名
+     * 获取系统编译作者
      *
-     * @return User名
+     * @return 系统编译作者
      */
     public static String getBuildUser() {
         return Build.USER;
     }
 
     /**
-     * 获取release版本信息 - The user-visible version string.  E.g., "1.0" or "3.4b5".
-     * @return release版本信息
+     * 获取编译系统版本(5.1) - The user-visible version string.  E.g., "1.0" or "3.4b5".
+     * @return 编译系统版本(5.1)
      */
     public static String getBuildVersionRelease() {
         return Build.VERSION.RELEASE;
     }
 
     /**
+     * 获取开发代号
      * The current development codename, or the string "REL" if this is
      * a release build.
      */
@@ -344,6 +364,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * 获取源码控制版本号
      * The internal value used by the underlying source control to
      * represent this build.  E.g., a perforce changelist number
      * or a git hash.
@@ -353,16 +374,16 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取设备系统版本号
+     * 获取编译的SDK版本号（Android版本号）
      *
-     * @return 设备系统版本号
+     * @return 编译的SDK版本号（Android版本号）
      */
     public static int getSDKVersion() {
         return android.os.Build.VERSION.SDK_INT;
     }
 
     /**
-     * 获取设备修订版本列表
+     * 获取修订版本列表(LMY47D)
      *
      * @return 修订版本列表
      */
@@ -371,6 +392,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * CPU指令集
      * An ordered list of ABIs supported by this device. The most preferred ABI is the first
      * element in the list.
      */
@@ -386,16 +408,17 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取设备厂商
+     * 获取硬件制造厂商
      * <p>如 Xiaomi</p>
      *
-     * @return 设备厂商
+     * @return 硬件制造厂商
      */
     public static String getManufacturer() {
         return Build.MANUFACTURER;
     }
 
     /**
+     * 获取系统启动程序版本号
      * The system bootloader version number
      */
     public static String getBootloader() {
@@ -414,6 +437,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * 获取系统版本号
      * A build ID string meant for displaying to the user.
      */
     public static String getDisplayVersion() {
@@ -421,6 +445,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * 获取语言
      * Returns the language code of this Locale.
      */
     public static String getLanguage() {
@@ -438,6 +463,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * 获取系统版本:5.1.1
      * 获取release版本信息 - The user-visible version string.  E.g., "1.0" or "3.4b5".
      * @return release版本信息
      */
@@ -446,6 +472,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * 获取GSF序列号
      * <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
      */
     public static String getGSFID(Context context) {
@@ -464,7 +491,7 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取蓝牙的MAC信息
+     * 获取蓝牙的MAC地址
      * <uses-permission android:name="android.permission.BLUETOOTH"/>
      */
     @SuppressWarnings("MissingPermission")
@@ -482,6 +509,10 @@ public final class DeviceUtils {
         return result;
     }
 
+    /**
+     * Android设备物理唯一标识符
+     * @return
+     */
     public static String getPsuedoUniqueID() {
         String devIDShort = "35" + (Build.BOARD.length() % 10) + (Build.BRAND.length() % 10);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -501,36 +532,37 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取设备唯一编号
+     * 获取构建标识
+     * 包括brand,name,device,version.release,id,version.incremental,type,tags这些信息
      *
-     * @return 唯一编号
+     * @return 构建标识
      */
     public static String getFingerprint() {
         return Build.FINGERPRINT;
     }
 
     /**
-     * 获取硬件名
+     * 获取硬件信息
      *
-     * @return 硬件名
+     * @return 硬件信息
      */
     public static String getHardware() {
         return Build.HARDWARE;
     }
 
     /**
-     * 获取手机产品名
+     * 获取产品信息
      *
-     * @return 手机产品名
+     * @return 产品信息
      */
     public static String getProduct() {
         return Build.PRODUCT;
     }
 
     /**
-     * 获取设备参数
+     * 获取设备信息
      *
-     * @return 设备参数
+     * @return 设备信息
      */
     public static String getDevice() {
         return Build.DEVICE;
@@ -546,6 +578,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * 获取基带版本(无线电固件版本 Api14以上)
      * Returns the version string for the radio firmware.  May return
      * null (if, for instance, the radio is not currently on).
      */
@@ -554,6 +587,7 @@ public final class DeviceUtils {
     }
 
     /**
+     * 获取的浏览器指纹(User-Agent)
      * Returns the default User-Agent used by a WebView.
      */
     public static String getUA(Context ctx) {
@@ -566,7 +600,7 @@ public final class DeviceUtils {
     }
 
     /**
-     * 获取设备密度信息.
+     * 获取得屏幕密度.
      *
      * @return 设备密度信息对应的字符串
      */

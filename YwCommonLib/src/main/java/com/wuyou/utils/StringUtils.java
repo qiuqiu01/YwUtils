@@ -76,6 +76,11 @@ public final class StringUtils {
             "zhun", "zhuo", "zi", "zong", "zou", "zu", "zuan", "zui", "zun", "zuo"};
 
 
+    /**
+     * 汉字转成ASCII码
+     * @param chs
+     * @return
+     */
     public static int getChsAscii(String chs) {
         int asc = 0;
         try {
@@ -97,6 +102,11 @@ public final class StringUtils {
         return asc;
     }
 
+    /**
+     * 单字解析
+     * @param str
+     * @return
+     */
     public static String convert(String str) {
         String result = null;
         int ascii = getChsAscii(str);
@@ -113,6 +123,11 @@ public final class StringUtils {
         return result;
     }
 
+    /**
+     * 词组解析
+     * @param chs
+     * @return
+     */
     public String getSelling(String chs) {
         String key, value;
         StringBuilder buffer = new StringBuilder();
@@ -131,6 +146,11 @@ public final class StringUtils {
         return buffer.toString();
     }
 
+    /**
+     * 将null转化为""
+     * @param str
+     * @return
+     */
     public static String parseEmpty(String str) {
         if (str == null || "null".equals(str.trim())) {
             str = "";
@@ -138,10 +158,20 @@ public final class StringUtils {
         return str.trim();
     }
 
+    /**
+     * 是否是空字符串
+     * @param str
+     * @return
+     */
     public static boolean isEmpty(String str) {
         return str == null || str.trim().length() == 0;
     }
 
+    /**
+     * 中文长度
+     * @param str
+     * @return
+     */
     public static int chineseLength(String str) {
         int valueLength = 0;
         String chinese = "[\u0391-\uFFE5]";
@@ -156,6 +186,11 @@ public final class StringUtils {
         return valueLength;
     }
 
+    /**
+     * 字符串长度
+     * @param str
+     * @return
+     */
     public static int strLength(String str) {
         int valueLength = 0;
         String chinese = "[\u0391-\uFFE5]";
@@ -172,6 +207,12 @@ public final class StringUtils {
         return valueLength;
     }
 
+    /**
+     * 获取指定长度的字符所在位置
+     * @param str
+     * @param maxL
+     * @return
+     */
     public static int subStringLength(String str, int maxL) {
         int currentIndex = 0;
         int valueLength = 0;
@@ -191,6 +232,11 @@ public final class StringUtils {
         return currentIndex;
     }
 
+    /**
+     * 是否是中文
+     * @param str
+     * @return
+     */
     public static Boolean isChinese(String str) {
         Boolean isChinese = true;
         String chinese = "[\u0391-\uFFE5]";
@@ -203,6 +249,11 @@ public final class StringUtils {
         return isChinese;
     }
 
+    /**
+     * 是否包含中文
+     * @param str
+     * @return
+     */
     public static Boolean isContainChinese(String str) {
         Boolean isChinese = false;
         String chinese = "[\u0391-\uFFE5]";
@@ -215,6 +266,11 @@ public final class StringUtils {
         return isChinese;
     }
 
+    /**
+     * 不足2位前面补0
+     * @param str
+     * @return
+     */
     public static String strFormat2(String str) {
         try {
             if (str.length() <= 1) {
@@ -226,6 +282,12 @@ public final class StringUtils {
         return str;
     }
 
+    /**
+     * 类型安全转换
+     * @param value
+     * @param defaultValue
+     * @return
+     */
     public static int convert2Int(Object value, int defaultValue) {
         if (value == null || "".equals(value.toString().trim())) {
             return defaultValue;
@@ -238,6 +300,12 @@ public final class StringUtils {
         }
     }
 
+    /**
+     * 指定小数输出
+     * @param s
+     * @param format
+     * @return
+     */
     public static String decimalFormat(String s, String format) {
         DecimalFormat decimalFormat = new DecimalFormat(format);
         return decimalFormat.format(s);

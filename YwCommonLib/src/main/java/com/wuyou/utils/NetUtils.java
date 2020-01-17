@@ -40,12 +40,22 @@ public final class NetUtils {
         throw new UnsupportedOperationException("U can't instantiate me...");
     }
 
+    /**
+     * 获取网络类型
+     * @param context
+     * @return
+     */
     public static int getNetworkType(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
         return networkInfo == null ? -1 : networkInfo.getType();
     }
 
+    /**
+     * 获取网络名称
+     * @param context
+     * @return
+     */
     public static String getNetworkTypeName(Context context) {
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo;
@@ -70,6 +80,11 @@ public final class NetUtils {
         return type;
     }
 
+    /**
+     * 检查网络状态
+     * @param context
+     * @return
+     */
     public static boolean isConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();
@@ -82,6 +97,11 @@ public final class NetUtils {
         return false;
     }
 
+    /**
+     * 网络可用性
+     * @param context
+     * @return
+     */
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {
             return false;
@@ -99,6 +119,11 @@ public final class NetUtils {
         return false;
     }
 
+    /**
+     * 是否wifi
+     * @param cxt
+     * @return
+     */
     public static boolean isWiFi(Context cxt) {
         ConnectivityManager cm = (ConnectivityManager) cxt.getSystemService(Context.CONNECTIVITY_SERVICE);
         // wifi的状态：ConnectivityManager.TYPE_WIFI
@@ -107,6 +132,10 @@ public final class NetUtils {
         return cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
     }
 
+    /**
+     * 打开网络设置界面
+     * @param activity
+     */
     //unchecked
     public static void openNetSetting(Activity activity) {
         Intent intent = new Intent();
@@ -120,7 +149,6 @@ public final class NetUtils {
     /**
      * Whether is fast mobile network
      */
-
     private static boolean isFastMobileNetwork(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (telephonyManager == null) {
@@ -165,16 +193,32 @@ public final class NetUtils {
         }
     }
 
+    /**
+     * 设置wifi状态
+     * @param context
+     * @param enabled
+     */
     public static void setWifiEnabled(Context context, boolean enabled) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(enabled);
     }
 
+    /**
+     * 获取wifi列表
+     * @param context
+     * @return
+     */
     public static List<ScanResult> getWifiScanResults(Context context) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         return wifiManager.startScan() ? wifiManager.getScanResults() : null;
     }
 
+    /**
+     * 过滤扫描结果
+     * @param context
+     * @param bssid
+     * @return
+     */
     public static ScanResult getScanResultsByBSSID(Context context, String bssid) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         ScanResult scanResult = null;
@@ -194,6 +238,11 @@ public final class NetUtils {
         return scanResult;
     }
 
+    /**
+     * 获取wifi连接信息
+     * @param context
+     * @return
+     */
     public static WifiInfo getWifiConnectionInfo(Context context) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         return wifiManager.getConnectionInfo();

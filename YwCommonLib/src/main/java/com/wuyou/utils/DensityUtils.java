@@ -101,7 +101,7 @@ public final class DensityUtils {
     }
 
     /**
-     * 获取屏幕真实高度
+     * 获取屏幕的真实高度
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public static int getScreenRealHeight(Context context) {
